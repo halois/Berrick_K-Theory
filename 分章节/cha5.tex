@@ -1,0 +1,208 @@
+%-----------------第五章----------------
+\chapter{The plus-construction} % (fold)
+\label{cha:5the_plus_construction}
+Now for the crucial classification theorem for acyclic maps from a space $X$ (where $X$ is as before). This will enable us to speak of ``the'' space obtained by an acyclic map killing a given perfect normal subgroup of $\pi_1(X)$. Actually, it pays to be choosey here. For although there is a
+nice enough classification theorem at this level of generality, its applications disappoint, in that diagrams tend to commute only up to homotopy. So instead we restrict attention to {\em acyclic cofibrations}\index{acyclic cofibrations}. (It is reassuring to note that if $f\colon   X \longrightarrow Y$ is any acyclic map, then the inclusion of $X$ in the mapping cylinder $Z_f$ ($\simeq Y$) is an acyclic cofibration.) The effect is to operate in the category {\em under} $X$ (objects cofibrations $g \colon   X \longrightarrow Z$, morphisms strictly commuting triangles
+
+\[
+\begin{tikzcd}[column sep=tiny]
+& X \arrow[dl,"g_1"] \arrow{dr}{g_2}& \\
+Z_1 \arrow{rr}{h}  & &Z_2 \\
+\end{tikzcd}
+\]
+),
+which has the pleasant --- and here, crucial --- property that if $h \colon   Z_1\longrightarrow Z_2$ under $X$ is a homotopy equivalence, then it is a homotopy equivalence under $X$, that is, with all triangles apex $X$ strictly commuting [4].The upshot is that judicious use of cofibrations makes many diagrams commute which might otherwise have done so only up to homotopy.
+
+\begin{theorem}
+Let $P$ be a perfect normal subgroup of $\pi_1 (X)$. Then there exists an acyclic cofibration $f\colon   X \longrightarrow  Y$ with $\ker \pi_1 (f) = P$. If $f'\colon   X \longrightarrow Y'$ is another acyclic cofibration with $\ker \pi_1(f') = P$, then there exists a homotopy equivalence $g \colon   Y \longrightarrow Y'$ such that $g\circ f =f'$.
+\end{theorem}\index{acyclic classification theorem}
+
+\begin{proof}
+{\em Existence}. We first treat the case where $P = \pi_1(X)$. For each generator of $\alpha_\lambda$ of $\pi_1(X)$ attach a $2$-cell to $X$ with characteristic map some $a_\lambda\colon   S^1 \longrightarrow  X$ whose homotopy class is $\alpha_\lambda$ (Axiom of choice.) (Or, more frugally, do this only for each member of a subset which normally generates $\pi_1(X)$.) The resulting space $W$ is simply-connected (van Kampen) so that there is a Hurewicz isomorphism $\pi_2(W) \longrightarrow  H_2(W)$.
+\[
+ \begin{tikzcd}
+ \vee_\lambda S^1 \arrow[hook]{d} \arrow{r} \arrow[dr, phantom, "\ulcorner"] & 
+  X \arrow[hook]{d}\\
+ \vee_\lambda B^2 \arrow{r} & W\\
+ \end{tikzcd}
+ \]
+\[\cdots \longrightarrow H_2(W)\longrightarrow H_2(W,X)\longrightarrow H_1(X)\longrightarrow \cdots \]
+
+Because $X$ has perfect fundamental group $H_1(X) = 0$, while by excision $H_2(W,X) = H_2(\vee_\lambda B^2,\vee_\lambda S^1)=\sum_\lambda \Z$. Maps $b_\lambda\colon   S^2\longrightarrow W$, one for each $\lambda$, may now be chosen so that their wedge makes the composition
+\[\widetilde{H}_q(\vee S^2) \longrightarrow \widetilde{H}_q(W)\longrightarrow H_q(W,X)\]
+an homology isomorphism (being, for $q = 2$, an epimorphism between free abelian groups on the same number of generators). So attach $3$-cells to $W$ by $\vee b_\lambda\colon   \vee_\lambda S^2 \longrightarrow W$ to form another simply-connected space $Y$.
+\[
+ \begin{tikzcd}
+ \vee_\lambda S^2 \arrow[hook]{d} \arrow{r} \arrow[dr, phantom, "\ulcorner"] & 
+  W \arrow[hook]{d}\\
+ \vee_\lambda B^3 \arrow{r} & Y\\
+ \end{tikzcd}
+ \]
+Because $Y$ is simply-connected it has the fundamental group we are seeking and also, in order to establish that $X\hookrightarrow Y$ is acyclic, we need only check that $H_*(Y, X) = 0$ (by (403)(ii), (iii), (iv) or (xii)). By the $5$-lemma (and excision) the induced map of exact sequences of triples $(\vee B^3, \vee S^2, pt.)$ and $(Y, W, X)$
+\[
+ \begin{tikzcd}
+ \cdots \arrow{r} & H_q(\vee S^2, pt.) \arrow{d}{H_q(\vee b_n)} \arrow{r} & H_q(\vee B^3, pt.) \arrow{d} \arrow{r} &H_q(\vee B^3, \vee S^2) \arrow{d} \arrow{r} &\cdots \\
+ \cdots \arrow{r} & H_q(W,X)  \arrow{r} & H_q(Y,X)  \arrow{r} &H_q(Y,W)  \arrow{r} &\cdots \\
+ \end{tikzcd}
+ \]
+
+is an isomorphism throughout. In particular $H_*(Y, X) = 0$ as required.
+For the general case, let $X' \longrightarrow X$ be a covering of $X$ with $\pi_1(X')= P$. By the above there is an acyclic cofibration $f'\colon  X'\longrightarrow Y'$ where $Y'$ is simply-connected. Form the cofibration $f\colon   X \longrightarrow Y$ by the push-out
+\[
+ \begin{tikzcd}
+ X' \arrow{d} \arrow{r}{f'}  \arrow[dr, phantom, "\ulcorner"]& Y' \arrow{d}\\
+ X \arrow{r}{f} & Y\\
+ \end{tikzcd}
+ \]
+(4.21) shows that $f$ is acyclic with $\ker \pi_1(f) = P$.
+
+{\em Uniqueness}. An immediate consequence of the following useful lemma. 
+
+\end{proof}
+\begin{prop}
+	Suppose $f\colon   X \longrightarrow Y$ and $g \colon   X \longrightarrow Z$ are maps with $f$ an acyclic cofibration and
+$\ker \pi_1(f) \leqslant \ker \pi_1(g)$. Then there exists a map $h \colon   Y \longrightarrow Z$ such that $h\circ f = g$; moreover any two such are homotopic.
+\end{prop}
+\begin{proof}
+It may be checked that $g$ may be replaced by the inclusion of $X$ in the associated mapping cylinder: the substitute has the virtue of being a cofibration. This granted, assume that $g$ is itself a cofibration. Obviously we shall use (4.21).
+\[
+ \begin{tikzcd}
+ X \arrow{d}{g} \arrow{r}{f}  \arrow[dr, phantom, "\ulcorner"]& Y \arrow{d}\\
+ Z \arrow{r}{f'} & Z\cup_X Y\\
+ \end{tikzcd}
+ \]
+This implies that $f'$ is an acyclic cofibration in the above co-Cartesian square, and that $\ker \pi_1(f')$, the normal closure of $\pi_1(g)$ ($\ker \pi_1(f)$), is trivial. So, by (4.15), $f'$ is a homotopy equivalence.
+
+Since the diagram commutes and both $g$ and $g'\circ f$ are cofibrations, it follows that $f'$ is a homotopy equivalence under $X$ (the whole point of our refinement to acyclic cofibrations). By composing the unique homotopy inverse under $X$ to $f'$ with $g'$, we obtain the desired homotopy class under $X$ represented by $h$. Moreover, because the universal property of $Z\cup_X Y$ forces any such map $h$ to
+assume this form, the class of $h$ must be unique.
+
+\end{proof}
+
+ 
+As an application we use (4.21) and the fact that the inclusion of an acyclic space $A$ in its cone
+$CA$ is an acyclic cofibration.
+\begin{corollary}
+  If $A$ is an acyclic space, then any map $d \colon   A \longrightarrow X$ induces as its mapping cone (=homotopy cofibre) inclusion $i\colon   X \longrightarrow C_d$ an acyclic cofibration killing the normal closure of $\ima \pi_1(d)$ in $\pi_1(X)$.
+\end{corollary}
+
+For an alternative proof, let $f \colon   X \longrightarrow Y$ be the acyclic cofibration with $\ker \pi_1(f) = \ima \pi_1(d)$ whose existence is guaranteed by (5.1). Then by (5.2) both $f$ and $i$ eiyoy the same universal property with respect to maps $g \colon   X \longrightarrow  Z$ such that $g\circ d$ is nulhomotopic.
+
+If $P$ is an arbitrary perfect normal subgroup of the fundamental group of $X$, then the space $Y$
+of (5.1) may be written as $X_P^+$, the plus-construction\index{plus-construction} with respect to $P$. (Thus in (5.3) $C_d$ is (up to homotopy equivalence under $X$) $X_P^+$ where $P$ is the normal closure in $\pi_1(X)$ of $\ima \pi_1(d)$.) The reader should be warned of forthcoming lapses of pedantry: one often refers to $X_P^+$ as enjoying some property (e.g.\  (5.11)) when one really means that at least one representative for such a space has the property. It need not follow that all representatives do.
+
+Examples of the geometric applicability of the construction $X\longrightarrow X_P^+$ occur in, say, [17]. For our purposes, however, it is enough to consider only the case where $P$ is the {\em maximal} perfect\index{perfect group} subgroup $P\pi_1(X)$\index{perfect radical, $PG$} of $\pi_1(X)$ --- which from (1.4) b) we know must be normal. This particular case earns its own notation: the reference to $P$ is dropped and the map $X \longrightarrow X^+$ is called $q_X$. (It is for the reader to decide whom the letter $q$ commemorates.) $q_X$ may be described, after (5.1), as the terminal object, up to homotopy, in the category of acyclic cofibrations under $X$. The following properties are worth checking. (The first uses (4.14) and (1.7).)
+\begin{prop}
+	Acyclic $f\colon   X \longrightarrow Y$ is equivalent to $q_X$ if and only if $P\pi_1(Y) = 1$.
+\end{prop}
+Of course, the term ``equivalent'' in (5.4) has two interpretations, according as $f$ is a cofibration or not.
+\begin{prop}
+	Given $f \colon   X \longrightarrow Y$, there is a unique homotopy class of maps $f^+ \colon  X^+ \longrightarrow Y^+$ making the following square commute.
+\[
+ \begin{tikzcd}
+ X \arrow{d}{q_X} \arrow{r}{f}  & Y \arrow{d}{q_Y}\\
+ X^+ \arrow{r}{f^+} & Y^+\\
+ \end{tikzcd}
+ \]
+\end{prop}
+This result is a consequence of (5.2) and (1.4) d). From (1.6) a),
+\[P\pi_1(X\times Z)=P(\pi_1(X)\times \pi_1(Z))=P\pi_1(X)\times P\pi_1(Z), \]
+so that $\cdots$
+\refstepcounter{theorem}
+\begin{equation}
+	(X\times Z)^+ = X^+ \times Z^+ \mbox{ with } q_{X\times Z} = (q_X, q_Z).
+\end{equation}
+Next, (5.5) and (5.6) ($Z = I$) combine to yield $\cdots$
+\refstepcounter{theorem}
+\begin{equation}
+ 	\mbox{If } f_0 \sim f_1 \colon  X\longrightarrow Y \mbox{ then }f_0^+ \sim f_1^+ \colon  X^+ \longrightarrow Y^+.
+ \end{equation} 
+
+Algebraists aware of an absence of algebra hereabouts may find some consolation in the proof of the next result, on the one-point union of spaces.
+\refstepcounter{theorem}
+\begin{equation}
+	(X_1 \vee X_2)^+ = X_1^+ \vee X_2^+\mbox{ with } q_{X_1\vee X_2}=q_{X_1}\vee q_{X_2}.
+\end{equation}
+\begin{proof}
+ The interesting thing about the proof is its use of some relatively deep group theory. (Or have I overlooked a more elementary argument?) For, to show that $P\pi_1(X_1^+ \vee X_2^+)=1$, we  appeal to the theorem of Kurosch [15] to the effect that any subgroup, $H$ say, of a free product (such as $\pi_1(X_1^+ \vee X_2^+) = \pi_1 (X_1^+)* \pi_1(X_2^+)$) is itself a free product of a free group, $F$ say, with conjugates (say $L_1,L_2$) of subgroups of the original free factors. Now the Mayer-Vietoris sequence for $BH = BF\vee BL_1\vee BL_2$ reveals that
+\[H_1(BH)\cong H_1(BF)\oplus H_1(BL_1)\oplus H_1(BL_2),\]
+whence $H$ perfect (that is, $H_1(BH) = 0$) forces $F$, $L_1$, $L_2$ to be perfect as well. However $F$, being free, must be trivial, while in our case $L_1, L_2$ are perfect only so long as their conjugates in $\pi_1(X_1^+)$ ,$\pi_1(X_2^+)$ are, making them trivial too (5.4). Hence $\pi_1(X_1^+ \vee X_2^+)$ has only trivial perfect subgroups. (More generally of course, we have shown that $PG_1 = 1$ and $PG_2 = 1$ imply that $P(G_1*G_2)=1$.)
+
+The proof that $q_{X_1}\vee q_{X_2}$ is acyclic more routine. Letting $\sqcup$ denote {\em disjoint} union, apply (4.21) to the co-Cartesian square
+\[
+ \begin{tikzcd}
+ X_1\sqcup X_2 \arrow{r}{q_{X_1}\sqcup q_{X_2} } \arrow{d} \arrow[dr, phantom, "\ulcorner"] & X_1^+\sqcup X_2^+ \arrow{d}\\
+ X_1\vee X_2 \arrow{r} & X_1^+\vee X_2^+\\
+ \end{tikzcd}
+ \]
+
+Note the fundamental group epimorphism
+\[\pi_1(X_1) *\pi_1(X_2) \twoheadrightarrow \pi_1(X_1) \times \pi_1(X_2)\]
+
+induced from the inclusion $j \colon   X_1\vee X_2 \hookrightarrow X_1\times X_2$. Because the {\em smash product}\index{smash product, $\wedge$}  $X_1\wedge X_2 = (X_1\times X_2)/(X_1\vee X_2)$ is homotopy equivalent to the cofibre $C_j$ of this inclusion [38 p.418], the van Kampen theorem for the push-out 
+\[
+\begin{tikzcd}
+ X_1\vee X_2 \arrow{r} \arrow[hook]{d} \arrow[dr, phantom, "\ulcorner"] & C(X_1\vee X_2) \arrow{d}\\
+ X_1\times X_2 \arrow{r} & C_j\\
+ \end{tikzcd}
+ \]
+yields that $\pi_1(X_1\wedge X_2)$ is trivial. Meanwhile, it follows from the $5$-lemma on the homology exact sequences of the pairs $(X_1\times X_2, X_1\vee X_2)$, $(X_1^+ \times X_2^+ , X_1^+ \vee X_2^+ )$ that $q_{X_1}\wedge q_{X_2}\colon   X_1\wedge X_2 \longrightarrow X_1^+ \wedge X_2^+ $ is an homology equivalence. Hence $\cdots$
+\refstepcounter{theorem}
+\begin{equation}
+ 	(X_1\wedge X_2)^+ = X_1\wedge X_2 \sim X_1^+ \wedge X_2^+.
+ \end{equation} 
+\end{proof}
+\begin{prop}
+	Suppose $f \colon   X\longrightarrow Y$ has path-connected homotopy fibre $F_f$. Then\\
+(a) so has $f^+$; and\\
+(b) $P\pi_1(F_{f^+})=1$.
+\end{prop}
+\begin{proof}
+(a) Clearly $X$ connected implies $X^+$ connected (consider zero-th homology). So chase the diagram
+\[
+ \begin{tikzcd}
+ \pi_1 (Y) \arrow{r} \arrow{d}& \pi_0(F_{f}) \arrow{r} \arrow{d}&\pi_0(X) \arrow{d} \\
+ \pi_1(Y^+) \arrow{r} & \pi_0(F_{f^+})   \arrow{r}              &\pi_0(X^+)  \\
+ \end{tikzcd}
+ \]
+
+(b))Observe that $P\pi_1(X^+) = 1$ while $\pi_2(Y^+)$ is abelian in the exact sequence
+\[
+ \begin{tikzcd}
+ \pi_2(Y^+) \arrow{r} & \pi_1(F_{f^+})   \arrow{r}              &\pi_1(X^+)  \\
+ \end{tikzcd}
+ \]
+
+\end{proof}
+
+We shall shortly have much more to say about the effect of the plus-construction functor on a fibration. For the moment though it is more interesting to see how it behaves with respect to
+pushing-out. The following application of (4.21) highlights the relevance of perfect-radical-preserving epimorphisms, studied in (1.6).
+
+
+\begin{prop}\label{5.11}
+ 	Let $f\colon   X\longrightarrow Y$ have path-connected homotopy fibre. Then the square 
+\[
+ \begin{tikzcd}
+ X \arrow{d}{f} \arrow{r}{q_X}  & X^+ \arrow{d}{f^+}\\
+ Y \arrow{r}{q_Y} &  Y^+\\
+ \end{tikzcd}
+ \]
+is co-Cartesian if and only if the epimorphism $\pi_1(f)$ preserves perfect radicals.
+ \end{prop} 
+
+If however $\pi_1(f)$ is not known to be surjective, then (4.21) stipulates the appropriate necessary and sufficient condition as the normal closure of $\pi_1(f)$($P\pi_1(X)$) being $P\pi_1(Y)$. This condition reappears in Chapter 9.
+
+\begin{ex}
+	(1) $X^+$ is contractible if and only if $X$ is acyclic. \\
+ (2) In (4.19)(1), $f\colon   M\longrightarrow S^n$\index{homology sphere} is just $q_M \colon   M\longrightarrow M^+.$ \\
+(3) This continues Example 4.19(4). In the commuting square\index{UT@$UT$, ring of $2\times 2$! upper triangular matrices}
+\[
+ \begin{tikzcd}
+ BGLUT \arrow{d}{B\pi} \arrow{r}{q_1}  & BGLUT^+ \arrow{d}{B\pi^+}\\
+ BGL(A\oplus A) \arrow{r}{q_2} &  BGL(A\oplus A)^+\\
+ \end{tikzcd}
+ \]
+(where $q_1= q_{BGLUT}$, etc.\ ), $B\pi^+$ is an homology equivalence, between spaces which will be shown in (11.6) to be nilpotent. Therefore (4.18) $B\pi^+$ is a {\em homotopy equivalence}, making $B\pi^+ \circ q_1$ a composition of acyclic maps and thus, by (4.12), acyclic. This provides the example promised in
+(4.19)(4), for $q_2$ and $q_2\circ B\pi$ are acyclic although $B\pi$ is not.
+\end{ex}
+
+% section the_plus_construction (end)

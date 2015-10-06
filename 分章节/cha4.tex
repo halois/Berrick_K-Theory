@@ -1,0 +1,278 @@
+%-----------------第四章----------------
+\chapter{Acyclic maps} % (fold)
+\label{cha:4acyclic_maps}
+This chapter lays the groundwork for a description of the plus-construction in the next. Apart from a continuation of Example 3.9, it contains no mention of rings. Nevertheless, algebraists may be consoled by the strong algebraic content of some of the concepts introduced here; in particular we are interested in when the fundamental group of a given space acts nilpotently on the homology groups of another, and in whether a certain subgroup of the fundamental group is {\em perfect}\index{perfect group}. Philosophically, this interplay between algebra and topology is one of the attractive features of the theory, but in practice the topological novice can soon strike problems of digestion. I assume therefore that the reader is armed with a copy of Spanier [38] where necessary, and have provided further referencing to some of the more esoteric points in the text, or wherever I have felt that the index of [38] might be insufficient.
+
+We work in the category of pointed spaces and base-point preserving maps. Whenever we can do so, we choose spaces which are homotopy equivalent to a connected CW-complex that contains only a finite number of cells of any given dimension. This decree is unnecessarily severe, but it saves our issuing special ordinances at various stages.
+
+Of course, the homotopy type of such a space X is uniquely determined by its homotopy groups $\pi_*(X)$ [38 (7.6.24)]. (Base-points are a non-variable part of the machinery and therefore dropped from the notation.) The condition that $\widetilde{H}_*(X) = 0$ (homology and cohomology with trivial integer coefficients unless otherwise stated), i.e.\  that $X$ is {\em acyclic}\index{acyclic space}, is thus weaker than contractibility of $X$. Indeed all it tells us about the fundamental group $\pi =\pi_1(X)$ is that it satisfies $H_1(\pi) = H_2(\pi) = 0$\index{superperfect group}, where we recall that the former condition means that $\pi$ is perfect. (Both these facts follow from the Serre spectral sequence of the fibration $\widetilde{X} \longrightarrow X \longrightarrow B\pi$ corresponding to the universal covering space $\widetilde{X}$ of $X$ (see p. 51 ). It gives rise to an exact sequence
+\[H_2(X)\longrightarrow H_2(\pi) \longrightarrow H_0(B\pi; H_1(\widetilde{X}))\longrightarrow H_1(X)\longrightarrow H_1(\pi) \longrightarrow 0,\]
+in which $H_1(\widetilde{X})$ is the abelianizatlon of the trivial group $\pi_1(\widetilde{X})$ [38(7.5.3)], making all terms zero. We shall witness the converse in Chapter 8: given $\pi$ with $H_1(\pi) = H_2(\pi) = 0$, we can construct an acyclic space with $\pi$ as fundamental group.) Moreover, the G. Whitehead theorem\index{Whitehead theorem} implies that a space $X$ is contractible if and only if $X$ is both acyclic and has trivial fundamental group [38(7.5.5)].
+
+The key definition is that a map $f\colon   X \longrightarrow Y$ is {\em acyclic}\index{acyclic map} if its homotopy fibre $F_f$\index{homotopy fibre, $F_f$} is. (Recall that $F_f = X \times_Y PY$ (denoted $E_f$ in [38 p.432]) is given by the pull-back diagram
+\[\begin{tikzcd}
+F_f \arrow{r} \arrow{d} \arrow[dr, phantom, "\lrcorner"]& PY \arrow{d}{\pi_Y}\\
+X \arrow{r}{f} & Y \\
+\end{tikzcd},\]
+
+where $PY$ is the contractible space of paths $\lambda\colon  I = [0,l]\longrightarrow Y$ in $Y$ which start at the base point and whose terminal point is given by $\pi_Y(\lambda)$.) This is clearly a homotopy invariant property, which conveniently allows us to regard $f$ as a cellular map between CW-complexes [38(7.6.18)], and thence even as an inclusion of a subcomplex in a CW-complex [38 (1.4.12)] when the occasion demands.
+\begin{prop}
+  If either $f$ or $g$ is a fibration in the Cartesian square
+\[\begin{tikzcd}
+Y'\times_Y X \arrow{r} \arrow{d}{f'} \arrow[dr, phantom, "\lrcorner"]& X\arrow{d}{f}\\
+Y' \arrow{r}{g} & Y \\
+\end{tikzcd}.\]
+then $f$ is acyclic if and only if $f'$ is.
+\end{prop}
+\begin{proof}
+The less obvious case is when $g$ is a fibration. Then from the commuting diagram 
+\[\begin{tikzcd}
+F_{f'} \arrow{rd} \arrow{rrr}{FP_g} \arrow{ddd}\arrow[ddr, phantom, "\lrcorner",bend right,near end] & & & F_f \arrow{ld} \arrow{ddd}\\
+      &Y'\times_Y X \arrow{r} \arrow{d}{f'} \arrow[dr, phantom, "\lrcorner"]& X\arrow{d}{f} \arrow[ddr, phantom, "\lrcorner",bend left,near start]&\\
+      &Y' \arrow{r}{g} & Y & \\
+PY' \arrow{ur}{\pi_{Y'}} \arrow{rrr}{P_g} & & & PY \arrow{ul}{\pi_Y}
+\end{tikzcd}.\]
+it follows that $g\ 
+circ \pi_{Y'}$ and $\pi_Y$ are fibrations while $P_g$ is a homotopy equivalence. So $P_g$ is in fact a fibre homotopy equivalence over $Y$ [9], as must therefore be its pull-back $FP_g$ over $X$.
+Whence the result.
+\end{proof}
+
+Pulling-back by the path-fibration $\pi_B \colon   PB \longrightarrow B$ gives the following application of (4.1). (Since $F_p = PB \times_B E = (PB\times_B E') \times_{E'} E = F_{p'} \times_{E'} E$, it follows from the above that the homotopy fibres of
+$f$ and $Ff$ are homotopy equivalent.) 
+\begin{prop}
+  Let
+\[
+\begin{tikzcd}[column sep=tiny]
+E \arrow{rr}{f} \arrow{dr}{p} & &E' \arrow{dl}{p'} \\
+& B & \\
+\end{tikzcd}
+\]
+commute. Then $f$ is acyclic if and only if its induced map on the homotopy fibres of $p$, $p'$ is.
+\end{prop}
+ \begin{prop}
+   The following properties of a map $f\colon   X\longrightarrow Y $ are equivalent.\\
+(i) $f$ is acyclic; \\
+(ii) for any local coefficient system $\{L\}$ of abelian groups on $Y$,
+\[f_*\colon  H_*(X; f_*\{L\})\longrightarrow H_*(Y;\{L\})\]
+is an isomorphism;\\
+(iii) $f_* \colon   H_*(X; f^*\{\Z[\pi_1(Y)]\})\longrightarrow H_*(Y;\{\Z[\pi_1(Y)]\})$ is an isomorphism;\\
+(iv) for $\widetilde{Y}$ the universal covering space of $Y$, the map $f' \colon   X\times_Y \widetilde{Y} \longrightarrow \widetilde{Y}$ induced by $f$ gives rise to an isomorphism
+\[H_*(f')\colon   H_*(X\times_Y\widetilde{Y})\longrightarrow H_*(\widetilde{Y}).\]
+ \end{prop}
+
+\begin{proof}
+(i)$\Rightarrow$(ii): Since the passage leaves homotopy fibre and homology groups unchanged, pass to the associated fibration [38 (2.8.9)] of $f$ --- also denoted $f\colon   X \longrightarrow Y$, with fibre $F$, inclusion $i\colon   F\hookrightarrow X$. Its (slightly generalized) Serre spectral sequence (cf. [10]) looks like
+\[E_{p,q}^2 = H_p(Y;\{H_q(F;i^*f^*L)\}) \Longrightarrow  H_{p+q}(X;f^*\{L\})\]
+
+where $\{L\}$ is a given, local coefficient system of abelian groups on $Y$ (corresponding to a $\Z[\pi_1(Y)]$-module), so that, $f\circ i$ being nulhomotopic, $i^*f^*\{L\}$ is a trivial local system. Then $\widetilde{H}_*(F; i^*f^*L) = 0$ by the universal coefficient theorem, whence $E^2_{p,q} = \delta_{q0} H_p(Y;\{L\})$,
+$E^2_{p,q} = \cdots = E^{\infty}_{p,q}$ and the edge homomorphism becomes the required isomorphism.
+
+(ii) $\Rightarrow$ (iii): Trivial.
+
+(iii) $\Rightarrow$ (iv): Recall there is an isomorphism
+\[H_*(Y;\{\Z[\pi_1(Y)\}) \overset{\cong}{\longrightarrow} H_*(\widetilde{Y})\]
+given as follows (cf. [7]). For each $y\in Y$ choose $\widetilde{y}\in \widetilde{Y}$ over it. A singular $q$-simplex of $Y$ with initial vertex $y_0$ and coefficient $\omega \in \pi_1(Y,y_0)$ lifts to a unique singular $q$-simplex of $\widetilde{Y}$, namely the unique lifting with initial vertex $\widetilde{y}_0$ [38(2.4.5)] composed with the unique covering transformation corresponding to $\omega$ [38(2.6.4)]. Thus $C_*(\widetilde{Y}) \cong C_*(Y)\otimes \Z[\pi_1(Y)]$. This argument extends to give a natural isomorphism
+\[H_*(X\times_Y \widetilde{Y}) \cong H_*(X;f^*\{\Z\pi_1(Y)]\}),\]
+ making $H_*(f')$ just the composition of group isomorphisms
+\[H_*(X\times_Y \widetilde{Y}) \longrightarrow H_*(X;f*\{\Z \pi_1(Y)]\})\overset{f_*}\longrightarrow  H_*(Y;\{\Z[\pi_1(Y)]\}) \longrightarrow H_*(\widetilde{Y}).\]
+
+(iv) $\Rightarrow$ (i): In view of (4.1), it suffices to show that $f'$ is acyclic. Because $\widetilde{Y}$ is simply-connected the Serre spectral sequence comparison theorem (4.4) below applies to the map of fibrations
+\[\begin{tikzcd}
+F_{f'} \arrow{r} \arrow{d} & * \arrow{d}\\
+X\times_Y \widetilde{Y} \arrow{r}{f'} \arrow{d}{f'}& \widetilde{Y} \arrow{d}{\id}\\
+\widetilde{Y} \arrow{r}{\id} &\widetilde{Y}\\
+\end{tikzcd}\]
+
+giving the result immediately.
+\end{proof}
+
+This list of equivalent formulations is by no means exhaustive. For example, the topologically-inclined reader may like to verify the following.
+
+(4.3) (continued): (v) the map $f'$ suspends to a homotopy equivalence;\\
+(vi) for some $k \geqslant 1 $ the $k$-fold suspension $S^kf' \colon   S^k(X\times_Y\widetilde{Y}) \longrightarrow S^k(\widetilde{Y})$ is a homotopy equivalence;\\
+(vii)---(x) as (i)---(iv) above, but using cohomology instead of homology;\\
+(xi) the homotopy cofibre of $f'$ is contractible.
+
+There is one further, more relevant, reformulation, for which we shall need a definition which takes heed of the importance of fundamental group actions in this theory. This definition is normally given for fibrations but may be taken as referring to maps in general by the usual recourse to the associated mapping-path fibration.
+
+A fibration $F\longrightarrow E\overset{p}\longrightarrow B$ with {\em connected} $F, E, B$ is said to be {\em quasi-nilpotent}\index{quasi-nilpotent map} if the action of $\pi_1(B)$ on $H_*(F)$ is nilpotent. Although the details of this last term will not be needed, it may be reassuring to have them briefly reviewed.
+
+First, any path $\omega \colon   I\longrightarrow B$ and singular $q$-simplex $g \colon   \Delta^q\longrightarrow p^{-1} (\omega(0))$ determine, by virtue of the homotopy lifting property of $p$, a map $G \colon   \Delta^q \times I\longrightarrow E$ over $\omega \circ pr_2 \colon    \Delta^q \times I \longrightarrow I \longrightarrow  B$ and extending $G_0 = g \colon   \Delta^q \times \{0\} \longrightarrow E$. If however $\omega$ is a loop, then $G_1 \colon  \Delta^q \times \{1\} \longrightarrow E$ is a $q$-simplex in $p^{-1}(\omega(1)) = p^{-1}(\omega(0))$ again. Thereby do elements of $\pi_1(B)$ operate on $H_*(F)$. Now given any group $\pi$ acting on (the left of) another, $N$ say (not necessarily abelian), the semi-direct product $N\rtimes \pi$ operates on $N$ (with $N$ acting on itself by inner automorphisms) and thence its quotients. The fixed-point sets under this action define an {\em upper central $\pi$-series}\index{upper central $\pi$-series} in $N$:
+\[\zeta_0^\pi N=1, \zeta_{i+1}^\pi N/\zeta_i^\pi= Fix_{N\rtimes \pi}(N/\zeta_i^\pi N)=Fix_N(N/\zeta_i^\pi N)\cap Fix_\pi(N/\zeta_i^\pi N),\]
+where of course $Fix_N(N/\zeta_i^\pi N)$ is just the centre $Z(N/\zeta_i^\pi N)$.\index{centre,!n-th@$n$-th--of a group, $\zeta_n G$} If some $\zeta_k^\pi N = N$\label{page37}, then $\pi$ acts nilpotently\index{nilpotent action} on $N$ (of class $\leqslant k$). In particular, if $N \leqslant \pi$, then is the radical among
+subgroups of $N$ on which $\pi$ acts nilpotently (via its inner automorphisms) of class $\leqslant j$. In this case there is also a {\em lower central $\pi$-series}\index{lower central $\pi$-series} $\Gamma_\pi^0 N = N$, $\Gamma_\pi^{i+1}N = [\pi,\Gamma_\pi^i N] $, from which one may define,for an arbitrary group of operators $\pi$ on $N$, $\Gamma_\pi^i N = \Gamma^i_{N\rtimes \pi}N$. The standard remarks about upper and lower central series all generalize in predictable fashion. Before proceeding, I mult emphasize the connectivity of $F$. Where $F$ is not mentioned explicitly, it corresponds to the suqectivity of $\pi_1(E) \longrightarrow \pi_1(B)$ in the homotopy exact sequence of the fibration.
+
+This class of fibrations draws its significance from the following theorem [21]
+\begin{prop}
+   Let
+\[\begin{tikzcd}
+F_{1} \arrow{r}{Ff} \arrow{d}       & F_2 \arrow{d}\\
+E_1   \arrow{r}{f}  \arrow{d}{p_1}  & E_2 \arrow{d}{p_2}\\
+B_1   \arrow{r}{G}                  & B_2\\
+\end{tikzcd}\]
+be a map between quasi-nilpotent fibrations such that $\pi_1 (g) \colon   \pi_1(B_1) \longrightarrow \pi_1(B_2)$ is an isomorphism. If any two of $H_*(Ff),H_*(f), H_*(g)$ is an isomorphism, then so is the third.
+\end{prop}
+
+An important class of quasi-nilpotent fibrations $p \colon   E \longrightarrow B$ comprises those which are {\em nilpotent}\index{nilpotent map} [6], [20]. (Their usual definition, not needed here, is that $\pi_1(B)$ acts nilpotently on each of the homotopy groups of $F_p$.) These have Moore-Postnikov system\index{Moore-Postnikov system} admitting a refinement composed of principal fibrations --- which means that $p$ factors as the composition of a homotopy equivalence with fibrations $D_i\longrightarrow D_{i-1}$ ($D_0 = B$) induced from path-fibrations $PK(A_i, n_i)\longrightarrow K(A_i,n_i)$, where $A_i$ is an abelian group and $n_i \geqslant 2$.
+\[\begin{tikzcd}[row sep=small]
+    & \vdots \arrow{d} &\\
+    &  D_i \arrow{d} \arrow{r} \arrow[dr, phantom, "\lrcorner"]& PK(A_i,n_i) \arrow{d}\\
+E\arrow{ruu}{\sim} \arrow{rdd}{p}   &  D_{i-1}  \arrow{d} \arrow{r}   & K(A_i,n_i) \\
+    & \vdots \arrow{d} &\\
+    & B &
+\end{tikzcd}\]
+
+We remark that such properties are preserved by pull-backs [38 (9.2.5)].
+
+Application of (4.4) to the fibrations $F_f\longrightarrow X \longrightarrow Y$ and $* \longrightarrow Y \longrightarrow Y$ yields the final necessary and sufficient condition for $f\colon   X\longrightarrow Y$ to be acyclic.
+
+(4.3) (concluded): (xii) $f$ is quasi-nilpotent and $H_*(f)$ is an isomorphism.
+
+This is such a valuable characteristic of acyclic maps that it makes it worthwhile pausing here to note some basic properties of nilpotent and quasi-nilpotent maps. Assume that all spaces in question, including fibres of maps, are connected. We say that a space $X$ is {\em nilpotent}\index{nilpotent space} if the map $X \longrightarrow  *$ is. By pulling-back $f\colon   X \longrightarrow Y$ to $F_f \longrightarrow *$ we thus have immediately
+\begin{prop}
+  If $f\colon  X\longrightarrow Y$ is nilpotent, then so is its fibre $F_f$.
+\end{prop}
+
+\begin{prop}
+[6 II 4.4] If any two of $f\colon  X\longrightarrow Y,g\colon   Y\longrightarrow Z$ and $g\circ f$ are nilpotent, then so is the third.
+ \end{prop}   
+
+This result, which we state without proof, straightaway implies the following.
+\begin{corollary}
+  If any two of $X, Y$ and $f \colon   X\longrightarrow Y$ are nilpotent, then so is the third.
+\end{corollary}
+
+Two further theorems are worth quoting from the literature.
+\begin{theorem}
+[11 (7.2)] If $X$ is nilpotent, then so is the fibre of $f \colon   X\longrightarrow Y$.
+\end{theorem}
+\begin{theorem}
+[19 (2.2)] $f \colon   X\longrightarrow Y$ is nilpotent if and only if it is quasi-nilpotent and its fibre $F_f$ is nilpotent.
+ \end{theorem} 
+\begin{corollary}
+   Suppose $f\colon   X \longrightarrow Y$ is a quasi-nilpotent fibration. Then $X$ is nilpotent if and only if both $F_f$ and $Y$ are.
+\end{corollary}
+\begin{proof}
+The nilpotence of $X$ implies in turn that of $F_f$ (by (4.8)), $f$ (4.9), and then $Y$ (4.7). Conversely, if $F_f$ is nilpotent, then so are $f$ (4.9) and (given $Y$ nilpotent) $X$ (4.7).
+\end{proof}
+
+A final observation here is that if $X$ is nilpotent, then its fundamental group is (wait for it$\cdots$) nilpotent. This is proved by induction, with each fibration $D_i\longrightarrow D_{i-1} \longrightarrow K(A_i, 2)$ $(D_0 = *)$ giving rise to a central extension [38 (7.3.13)] $A \rightarrowtail \pi_1(D_i) \twoheadrightarrow \pi_1(D_{i-1})$ where $\pi_1(D_{i-1})$ is
+already nilpotent. Then a lower central series check forces $\pi_1(D_{i})$ and so, eventually, $\pi_1(X)$ to be nilpotent. This implies that the derived series of $\pi_1(X)$ terminates at $1$, whence
+\begin{prop}
+  If $X$ is nilpotent, then $P\pi_1(X)= 1$.\index{perfect radical, $PG$}
+\end{prop}
+\begin{prop}
+  Suppose $f\colon   X \longrightarrow Y$ is acyclic. Then $g \colon   Y \longrightarrow Z$ is acyclic if and only if $g\circ f$ is.
+ \end{prop} 
+This is immediate from (ii) of (4.3). Examples will be provided later on (4.19)(3),
+(5.12)(3) to show that $g, g\circ f$ acyclic do not imply $f$ acyclic (in stark contrast to the situation for maps which merely induce integral homology isomorphisms). To draw such a conclusion we need to strengthen the assumptions, as follows.
+
+\begin{prop}
+  Given $f\colon  X\longrightarrow Y, g\colon   Y\longrightarrow Z$ with $H_*(f)$ an isomorphism. Then $f$ is acyclic provided either\\
+(a) $g, g\circ f$ are nilpotent; or\\
+(b) $g, g\circ f$ are quasi-nilpotent with the fibre $F_g$ of $g$ simply-connected.
+\end{prop}
+\begin{proof}
+Both arguments are applications of (4.3) xii). \\
+(a) If $g$ and $g\circ f$ are nilpotent, then so is $f$ (4.6). \\
+(b) From (4.4) $Ff_* \colon   H_*(F_{g\circ f})\longrightarrow H_*(F_g)$ is an isomorphism, so that, because $\pi_1 (F_g) = 1$, $Ff$ is acyclic. Then by (4.2) $f$ is too.
+\end{proof}
+The case (4.13) a) will be exploited more fully once we have witnessed the effect of acyclic maps on fundamental groups.
+\begin{prop}
+  If $f\colon  X\longrightarrow Y$ is acyclic, then $\pi_1(Y) \cong \pi_1(X)/P$ where $P$ is some perfect normal subgroup of $\pi_1(X)$.
+ \end{prop} 
+\begin{proof}
+Let $F$ be the homotopy fibre of $f$ with $i\colon  F\longrightarrow X$. Then in the exact sequence
+\[\pi_2(Y)\longrightarrow \pi_1(F)\overset{\pi_1(i)}\longrightarrow \pi_1(X) \overset{\pi_1(f)}\longrightarrow \pi_1(Y)\longrightarrow \pi_0(F),\]
+ $\pi_1(f)$ is onto because $\widetilde{H}_0(F) = 0$ implies $\pi_0(F) = 1$ while $\ker\pi_1(f) = \ima \pi_1(i)$. The fact that
+$H_1(F) =0$ implies that $\pi_1(F)$ is perfect, and so its homomorphic image $P$ is also perfect after (1-4)a).
+\end{proof}
+
+In the case where $P$ is trivial, the homomorphism $\pi_2(Y)\longrightarrow \pi_1(F)$ maps an abelian group onto a perfect group, which must therefore be trivial. This makes $F$ both acyclic and simply-connected, in other words contractible. As an exercise, the reader may also use (4.3)iv) to obtain our conclusion, namely
+\begin{prop}
+  If $f\colon  X\longrightarrow Y$ is acyclic and $\pi_1(f)$ is an isomorphism, then $f$ is a homotopy equivalence.
+ \end{prop} 
+
+This argument combines with (4.3)xii) to give a new generalized Whitehead theorem.\index{Whitehead theorem} (The aim of the game is to find weak assumptions on an homology equivalence --- that is, a map inducing integral homology isomorphisms --- which guarantee that it is a homotopy equivalence.)
+
+\begin{theorem}
+  If $f\colon   X \longrightarrow Y$ is a quasi-nilpotent homology equivalence and $P\pi_1(X)=1$, then $f$ is a homotopy equivalence.
+ \end{theorem} 
+
+Now return to $f\colon   X \longrightarrow Y $ as in (4.13)a). Because $f$ is acyclic, so too is $Ff\colon   F_{g\circ f}\longrightarrow F_g$ (4.2).
+However $F_{g\circ f}$ is nilpotent (4.5); thus $P\pi_1F_{g\circ f} = 1$ (4.11). So (4.16) applies to $Ff$, forcing it, and thence also $f$, to be a homotopy equivalence.
+
+\begin{prop}
+  The conditions of (4.13)a) ensure that $f$ is a homotopy equivalence.
+\end{prop}
+Specialization to the case $Z = *$ yields the known result that an homology equivalence between nilpotent spaces is a homotopy equivalence. On the other hand, the case $Z =Y$ and $g = \id_Y$ yields the more general, new result that
+
+\begin{prop}
+   A nilpotent homology equivalence is a homotopy equivalence.
+ \end{prop}
+
+We can now summarize the key notions of this chapter, listing the most general first, as follows.
+\begin{tabular}{rcl}
+ &homology equivalence& \\
+ acyclic map &$\Longleftrightarrow $ &quasi-nilpotent homology equivalence \\
+ homotopy equivalence &$\Longleftrightarrow $ &nilpotent homology equivalence
+\end{tabular}
+ 
+(4.14) and (4.15) give a pretty good idea of what examples of acyclic maps must look like.
+Ours are drawn first from geometry, then from algebra.
+\begin{ex}
+  (1) For $n \geqslant 2$, let $M$ be a closed $n$-manifold which is an homology $n$-sphere.\index{homology sphere} Because $H_n(M) \neq 0$, $M$ is oriented, and so the map $f \colon    M \longrightarrow S^n$ defined by collapsing the complement of a neighbourhood $U$ ($\cong \R^n$) of a small cell ($\cong B^n$) in $M$ induces an isomorphism
+$H_*(f) \colon   H_n(M) \longrightarrow H_n(M, M-U) \cong H_n(S^n)$. Whence $f$ is acyclic, $S^n$ being simply-connected.
+
+(2) The Poincar\'e $3$-sphere\index{Poincar\'e $3$-sphere} is derived from the faithful smooth representation of the perfect alternating group $A_5$ \index{alternating group@alternating group, $A_5$} in $SO(3)$, i.e.\  in (1) above let $n = 3$, $M = SO(3)/A_5 = S^3/SL(2,5)$ (which, it follows from [35], is the only example of (1) where $M$ is covered by a sphere).
+
+(3) For $M$ as in (2), let $\omega$ be a non-triviai element of $\pi_1(M)$ (= binary icosahedral group)\index{binary icosahedral group@binary icosahedral group, $SL(2,5)$} so that its action on $\pi_2(M\vee S^2)$ is non-trivial, i.e.\  if $j \colon    S^2 \longrightarrow M\vee S^2$ generates $\pi_2(S^2)$ as a direct summand [38 pp 419,420] of
+\[\pi_2(M\vee S^2) = \pi_2(S^2) \oplus \pi_3(M\times S^2, M\vee S^2), \]
+then $h_{[\omega]}(j)\neq j$. (From the universal covering space $S^3 \vee  S^2$, one sees the latter summand is $\Z^{119}$.) Now let $k\colon  S^2 \longrightarrow M\vee S^2$ be a map whose homotopy class is $2j—h_{[\omega]}(j)\in \pi_2(M\vee S^2)$; it therefore represents $j$ in homology. So
+
+\[H_*(k) \colon   \widetilde{H}_*(S^2)\longrightarrow \widetilde{H}_*(S^2) \oplus \widetilde{H}_*(M) = \widetilde{H}_*(M\vee S^2)\]
+is the inclusion of the former summand. Next form the mapping cone $C_k$ (the adjunction space $B^3\cup_k (M\vee S^2)$). From the exact sequence for $k$ 
+\[
+\cdots \longrightarrow H_q(S^2) \overset{H_*(k)}\longrightarrow H_q(M\vee S^2) \longrightarrow H_q(C_k)\longrightarrow H_{q-1}(S^2)\longrightarrow \cdots ,\] 
+the inclusion $i\colon   M\hookrightarrow B^3\cup_k (M\vee S^2)$ is an homology isomorphism. Moreover $f\colon   M \longrightarrow S^3$ defined in (1) extends over $B^3\cup_k (M\vee S^2)$ to $\bar{f}$ by collapsing the now enlarged complement of $U \subset M \subset B^3\cup_k (M\vee S^2)$. So $H_*(\bar{f})= H_*(f)\circ(H_*(i))^{-1}$ is an isomorphism. This makes both $\bar{f}$ and $f = \bar{f} \circ i$ acyclic.
+\[M \hookrightarrow B^3\cup_k (M\vee S^2) \overset{\bar{f}}\longrightarrow S^3\]
+However $i$ cannot be acyclic, for $\pi_1(i)$ is an isomorphism while $\pi_2(i)$ is not, threatening a contradiction of (4.15).
+
+(4) Consider the map $B\pi$ induced on classifying spaces by $\pi \colon   GLUT \longrightarrow GL(A\oplus A)$\index{UT@$UT$, ring of $2\times 2$! upper triangular matrices} as in (3.9), From (3.10) it is an homology equivalence. However on fundamental groups it yields the original short exact sequence of groups being classified, namely
+\[ MA \rightarrowtail GLUT \overset{\pi}\twoheadrightarrow GL(A\oplus A).\]
+In other words, $\ker \pi_1(B\pi) = \ker \pi$ is the abelian group $MA$\index{MA@$MA$, additive group of!finite matrices}, which is most definitely not perfect. Thus by (4.14) $B\pi$  cannot be acyclic, and hence by (4.3)xii) is not quasi-nilpotent. We shall see
+in the next chapter how this gives rise to a further example, of an acyclic map $q$ with domain $BGL(A\oplus A)$ such that $q\circ B\pi$  is also acyclic although $B\pi$  fails to be.
+\end{ex}
+It is also highly profitable to discuss the cofibration analogue of (4.1).
+\begin{prop}
+  Suppose $f_1$ is a cofibration in the co-Cartesian square
+\[
+\begin{tikzcd}
+X \arrow{r}{f_1} \arrow{d}{f_0} \arrow[dr, phantom, "\ulcorner"]& Y_1 \arrow{d}{f'_0}\\
+Y_0 \arrow{r}{f'_1} & Y_0\cup_X Y_1 \\
+\end{tikzcd}
+\]
+If $f_i$ is acyclic, then so is $f'_i$ ($i = 0,1$).
+\end{prop}
+\begin{proof}
+Let $\{ L\}$ be a local coefficient system on $Y_0\cup_X Y_1$. Because $f_1$ is a cofibration the right-hand vertical homomorphism in
+\[\begin{tikzcd}
+\cdots \arrow{r} & H_q(X;f_1^* {f'}_0^*\{L\}) \arrow{r} \arrow{d} &
+ H_q(Y_1;f'^*_0\{L\}) \arrow{r} \arrow{d} &
+  H_q(Y_1,f_1(X);f'^*_0\{L\})\arrow{d} \arrow{r} & \cdots \\
+\cdots \arrow{r} & H_q(Y_0;f'^*_1\{L\}) \arrow{r} &
+ H_q(Y_0\cup_X Y_1;\{L\}) \arrow{r}  &
+  H_q(Y_0\cup_X Y_1,f'_1(Y_0);\{L\}) \arrow{r} & \cdots \\
+\end{tikzcd}\]
+ is an excision isomorphism. The results follow by chasing the above diagram and using characterization (4.3)ii).
+\end{proof}
+
+Further information is supplied by the van Kampen theorem, to the effect that  $\pi_1(Y_0\cup_X Y_1) = \pi_1(Y_0)*_{\pi_1(X)}\pi_1(Y_1)$. So if $f_1$ is acyclic then $\pi_1(Y_1)=\pi_1(X)/\ker \pi_1(f_1) $
+(by (4.14)), whence $\ker \pi_1(f'_1)$ is the normal closure of ${f_0}_*\ker_1(f_1)$.
+\begin{prop}
+  If in (4.20) $f_1\colon  X_1\longrightarrow Y_1$ is an acyclic cofibration, then $f'_1\colon  Y_0\longrightarrow Y_0\cup_X Y_1$ is an
+acyclic cofibration with $\ker \pi_1(f'_1)$ the normal closure of the perfect subgroup ${f_0}_* \ker \pi_1(f_1)$ of $\pi_1(Y_0)$.
+\end{prop}
+ 
+
+% chapter acyclic_maps (end)

@@ -1,0 +1,152 @@
+%---------------第六章------------------%
+\chapter{The plus-construction on a fibration} % (fold)
+\label{cha:6the_plus_construction_on_a_fibration}
+Suppose we have a space $E$ whose homotopy groups are only accessible through the homotopy exact sequence of a fibration $F \longrightarrow E \longrightarrow  B$. Chances are, we're going to know more about the homotopy groups of $F^+$ and $B^+$ than those of $E^+$. For them to be of much use however we need to relate them nicely to $\pi_*(E^+)$. So what we'd really like is to be able to say that $F \longrightarrow  E \longrightarrow B$ is a fibration implies $F^+ \longrightarrow E^+\longrightarrow  B^+$ is also a fibration. The justification of such statements is the goal of this chapter.
+
+First, the case of non-connected fibres. Here (and elsewhere) we need to recall some well-know homotopy theory concerning the classification of (connected) covering spaces. On the one hand, there are strong uniqueness properties (see, e.g.\ , [38 (2.5.3)]), which enable one to speak of ``the'' covering of X associated to any given normal subgroup of $\pi_1 (X)$. On the other, by the adjunction of (finitely many) $3$-cells to the space $X$, one can kill off all elements of $\pi_2(X)$; then addition of (finitely many) $4$-cells annihilates $\pi_3$ of the new space without altering $\pi_1$, $\pi_2$. Iteration of this procedure gives rise to another space in our category which has trivial homotopy groups, apart from the same fundamental group as $X$. Thus it serves as a model for the Eilenberg Madane space $K(\pi_1(X)), 1)$, and comes complete with a map $X \longrightarrow K(\pi_1(X), 1)$ (inclusion, in fact) which induces the identity homomorphism on fundamental groups. The usual model for a space $K(G, 1)$ is Milnor's classifying space $BG$, obtained by factoring out the (contractible) infinite join $EG = G*G*\cdots$ by diagonal $G$-multiplication. The homotopy groups of $BG$ may be checked from the fact that $EG$ forms a covering space over $BG$ ($G$ being discrete), and so, by uniqueness, the universal cover of $BG$. Note that any two models for $K(G, 1)$ have the same homotopy type (Whitehead theorem) --- prompting us to cheat occasionally and let $B1 = pt$ ---, while $G \mapsto BG$ forms a functor (inverse to $X\mapsto \pi_1(X)$. In Chapter 11 we shall use the further
+property that an extension $N\rightarrowtail G \twoheadrightarrow Q$ induces a {\em fibre sequence}\index{fibre sequence} $BN \longrightarrow BG \longrightarrow BQ$ (i.e.\  $BN$ has the homotopy type of the homotopy fibre of $BG\longrightarrow BQ$), as a check of homotopy groups reveals.) In sum then, if $H \unlhd \pi_1 (X)$, then there is a map $X \longrightarrow K(\pi_1(X)/H, 1) = K$ (factoring
+through $X\longrightarrow K(\pi_1(X), 1)$) whose homotopy fibre $X \times_K PK$ is the cover of $X$ with fundamental group equal (from the exact sequence of the fibration) to $H$.
+\begin{prop}
+  Let $\bar{X}$ be the covering space of $X$ corresponding to some normal subgroup $H$ of $\pi_1(X)$ containing Then $\bar{X}^+$ is the covering of $X^+$ corresponding to the
+normal subgroup $H/P\pi_1(X)$ of $\pi_1(X)/P\pi_1(X) = \pi_1(X^+)$.
+\end{prop}
+\begin{proof}
+By (5.2), the classifying map $X \longrightarrow K(\pi_1(X)/H, 1)$ for the covering $\bar{X}$ factors through $X^+$, where the induced covering is $Y$, say.
+\[
+\begin{tikzcd}
+ \bar{X} \arrow{r}{\bar{q}} \arrow{d} \arrow[dr, phantom, "\lrcorner"] & Y \arrow{d} \arrow{r} \arrow[dr, phantom, "\lrcorner"]&PK(\pi_1(X)/H,1) \arrow{d} \\
+ X \arrow{r}{q_X} & X^+ \arrow[r] & K(\pi_1(X)/H,1)\\
+ \end{tikzcd}
+ \]
+
+Then $\bar{q} \colon   \bar{X}\longrightarrow Y$ is acyclic after (4.1), while $\ker \pi_1(\bar{q}) = \ker \pi_1(q_X) = P\pi_1(X) =PH$; so finish via (5.1).
+\end{proof}
+
+\begin{corollary}
+  Let $p \colon   E \longrightarrow B$ have path-connected homotopy fibre $F$. Let $k \colon   \bar{B} \longrightarrow B$ be the covering corresponding to $P\pi_1(B)$, with pull-back $\bar{p} \colon  \bar{E} \longrightarrow \bar{B}$ of $p$ over $k$. Then $F_{p^+}=F_{\bar{p}^+} $
+\end{corollary}
+\begin{proof}
+ We have commuting squares
+\[
+\begin{tikzcd}
+ \bar{E} \arrow{r} \arrow{d}{\bar{p}}  & E \arrow{d}{p} \\
+ \bar{B} \arrow{r}{k} & B\\
+ \end{tikzcd}
+ \]
+ \[
+\begin{tikzcd}
+ \bar{E}^+ \arrow{r} \arrow{d}{\bar{p}^+}  & E^+ \arrow{d}{p^+} \\
+ \bar{B}^+ \arrow{r}{k^+} & B^+\\
+ \end{tikzcd}
+ \]
+of which the former is known to be a pull-back; we prove the latter is too. A diagram chase of the homotopy exact sequences
+\[
+\begin{tikzcd}
+ \pi_1(F) \arrow{r} \arrow[equal]{d} & \pi_1(\bar{E})  \arrow[hook]{d} \arrow[two heads]{r} & \pi_1(\bar{B})=P\pi_1(B) \arrow[hook]{d}\\
+ \pi_1(F)  \arrow{r} & \pi_1(E) \arrow{r} &\pi_1(B)\\
+ \end{tikzcd}
+ \]
+shows that $\bar{E}$ is the covering of $E$ associated to some normal subgroup of $\pi_1(E)$ which contains $P\pi_1(E)$. Then by (6.1) both horizontal maps in the right-hand square above are covering projections with the same fibre (because $\pi_1(E)/\pi_1(\bar{E}) \cong \pi_1(B)/\pi_1(\bar{B})$ ). Uniqueness of covering projections now obliges $\bar{E}^+$ to be $\bar{B}^+ \times_{B^+} E^+$. Thus $\bar{p}^+$ is indeed a pull-back of $p^+$ and so has the
+same homotopy fibre.
+ \end{proof}
+  
+Since it is the homotopy groups of $X^+$ that we're after, we may allow ourselves a little freedom in choice of the space which is to represent the homotopy type of $X^+$. In particular this enables us to replace maps by their associated mapping-path fibrations if desired, and to speak simply of fibres rather than homotopy fibres. Also, this means we refer to a ``fibration'' at times when a purist would use the term ``fibre sequence''.
+
+A useful device for the main result on the plus-construction and fibrations, (6.4) below, is that of the {\em fibrewise $+$-construction}\index{fibrewise plus-construction}. The next lemma sets this up.
+\begin{lemma}
+  If $F\overset{i}{\longrightarrow} E\overset{p}{\longrightarrow} B$ is a fibration, then so is $F^+\longrightarrow E\cup_F F^+ \longrightarrow B$.
+\end{lemma}
+\begin{proof}
+ After (5.2), the trivial map $F \longrightarrow B$ factors through $F^+$. Then the universal property of push-outs enables us to define $p_1\colon   E\cup_F F^+ \rightarrow B$, whose fibre we seek to prove is $F^+$.
+ \[
+\begin{tikzcd}[row sep=small]
+ F \arrow{r}{q_F} \arrow{dd}{i} \arrow[ddr, phantom, "\ulcorner"] & F^+ \arrow{dd}{i'} \arrow{rd} & \\
+ & & F_{p_1} \arrow{dl}{i_1}\\
+ E \arrow{r}{q'} \arrow[equal]{dd}{p} & E\cup_F F^+ \arrow{dd}{p_1} & \\
+ &  & \\
+ B \arrow[equal]{r} & B &\\
+ \end{tikzcd}
+ \]
+Now (4.20) and (4.2) guarantee that $q'\colon   E \longrightarrow E\cup_F F^+$ and in turn $Fq'\colon   F\longrightarrow F_{p_1} $ are acyclic. If we knew that $Fq'$ factored through $F^+$ then (5.1) would immediately finish the proof. As we don't, the argument is less direct; it shows that $P\pi_1(F_{p_1}) = 1$, or equally (from (1.6), $\ker \pi_1(i_1)$ being central in $\pi_1(F_{p_1})$) [38 (7.3.13)]), that ${i_1}_*P\pi_1(F_{p_1}) = 1$ in $\pi_1(E\cup_F F^+)$. Because $\pi_1(Fq')$ is an epimorphism with perfect kernel (4.14), $P\pi_1(F_{p_1})=(Fq')_*P\pi_1(F)$ (using (1.6) again), so that
+\[{i_1}_*P\pi_1(F_{p_1}) ={i_1}_*(Fq')_*P\pi_1(F)=q'_*i_*P\pi_1(F)=i'_*{q_{F}}_*P\pi_1(F)=1,\]
+as $P\pi_1(F)$ is precisely what $\pi_1(q_F)$ kills.
+ \end{proof}
+  
+Now for the key result.
+\begin{theorem}
+If $F\overset{i}{\longrightarrow} E\overset{p}{\longrightarrow} B$ is a fibration (of connected spaces), then so is $F^+\overset{i^+}{\longrightarrow} E^+\overset{p^+}{\longrightarrow} B^+$, provided either\\
+(a)$P\pi_1 (B) = 1$ or
+(b) $p$ is quasi-nilpotent and $F^+$ is nilpotent.
+\end{theorem}
+\begin{proof}
+ (a) is easy (but worthwhile). For here $B^+ = B$, so that we are considering the map $q_E \colon   E \longrightarrow  E^+$ over $B$. After (4.2) the map of fibres $Fq_E \colon   F \longrightarrow F_{p^+}$ is acyclic. However, by (5.10), $P\pi_1(F_{p^+})=l$. So by (5.4) $F_{p^+}$ is $F^+$ after all. 
+
+(b) Note that $p$ nilpotent is a special case, by virtue of (4.9) which ensures that $F$ is nilpotent. and so (4.11) $F^+ = F$ is too. We postpone the proof of this case until after we have seen how it leads to the more general result. To see this therefore, apply (6.3) to obtain the fibration $F^+ \longrightarrow  E\cup_F F^+ \overset{p_1}{\longrightarrow}  B$. Certainly $p_1$ is quasi-nilpotent, because $\pi_1(B)$ is known to act nilpotently on $H_*(F)= H_*(F^+)$. But now that $p_1$ has nilpotent fibre it is further nilpotent (4.9). Given that this forces a fibration $(F^+)^+\longrightarrow (E\cup_F F^+)^+ \longrightarrow  B^+$, the conclusion follows from $(F^+)^+ = F^+ $ and also (because $E \longrightarrow E\cup_F F^+$ is acyclic) $(E\cup_F F^+)^+ = E^+$.
+
+Now for the proof when $p$ is nilpotent. We appeal to the lemma (6.5) below to get the nilpotence, in turn, of $p^+ \colon   E^+ \longrightarrow B^+$ and thence its pull-back $p' \colon   B\times_{B^+}E^+ \longrightarrow  B$. The maps $p \colon   E\longrightarrow  B$, $q_E\colon   E \longrightarrow E^+$ determine $s \colon   E \longrightarrow  B\times_{B^+}E^+$ and so the following commuting diagram.
+\[
+\begin{tikzcd}[row sep=scriptsize,column sep=small ]
+F \arrow{rr}{Fs=Fq_E} \arrow{rd} &  & F_{p^+} \arrow{rr}{\id} \arrow[dd] & & F_{p^+} \arrow{dd}\\
+      &E \arrow[rd,"s"'] \arrow[rddd,"p"']  \arrow[drrr,"q_E", crossing over, bend left=20]&  \\
+      & & B\times_{B^+}E^+ \arrow[rr,"r"'] \arrow{dd}{p'} \arrow[ddrr, phantom, "\lrcorner"]&  & E^+ \arrow{dd}{p^+}\\
+       \\
+      & & B \arrow[rr,"q_B"']& & B^+ \\
+\end{tikzcd}
+\]
+After (4.1) $r\colon   B\times_{B^+}E^+$ is acyclic. Thus $H_*(s)$ is an isomorphism because $H_*(r), H_*(q_E)$ are.
+Then (4.17) shows that $s$ is a homotopy equivalence, whence $Fs$ is too. This completes the proof because $F$, being nilpotent, is already $F^+$.
+ \end{proof}
+\begin{lemma}
+  If $f\colon  X\longrightarrow Y$ is a nilpotent fibration, then $f^+\colon  X^+\longrightarrow Y^+$ is also nilpotent.
+\end{lemma}
+\begin{proof}
+ (5.10) a) ensures that $F_{f^+}$ is path-connected. By our definition of a nilpotent fibration,  the Moore-Postnikov system of $f$\index{Moore-Postnikov system} refines to principal fibrations. So we may restrict attention to this case, needing to prove only that if $X \longrightarrow Y \longrightarrow K(A,n)$, $n \geqslant 2$, is a flbration, then so is $X^+ \longrightarrow Y^+ \longrightarrow K(A,n)$. This is immediate from (6.4) a).
+ \end{proof}
+  
+Note that the hypothesis (6.4) b) is stronger than need be. For by (6.2) in order to show that $F{p^+} = F^+$ it suffices to establish it with $p$ replaced by $\bar{p}$. The condition that $p$ be nilpotent may therefore be weakened to the action of $P\pi_1(B)$ (rather than that of the whole of $\pi_1(B)$) on $H_*(F)$ being nilpotent. As a bonus, the weakened hypothesis admits a surprising simplification $\cdots$
+
+\begin{prop}
+ 	If a perfect group $\pi$ acts nilpotently on a group $N$, then $\pi$ acts trivially on $N$ (and conversely).
+ \end{prop} 
+\begin{proof}
+ (We first dismiss the converse as trivial.) We show that $\pi$ acts trivially on each $\zeta_i^\pi N$ (see p.37).\index{centre,!n-th@$n$-th--of a group, $\zeta_n G$} Suppose done for $i = k \geqslant 0$. For any $g\in \zeta_{k+1}^\pi N$ the $\pi$-action\index{upper central $\pi$-series} defines a function $\rho_g$ from $\pi$ to $\zeta_{k}^\pi N$ by $\theta \mapsto [g, \theta ]$. Because $[\pi,\zeta_{k}^\pi N ]= 1$, we have
+ \[[g,\theta_1][g,\theta_2] =g\theta_1g^{-1}\theta_1^{-1}[g,\theta_2]=g\theta_1g^{-1}[g,\theta_2]\theta_1^{-1}=[g,\theta_1 \theta_2].\]
+
+This makes $\rho_g$ a homomorphism. Since the only homomorphism from a perfect group to an abelian group is the trivial one, it follows that $g$ commutes with $\pi$ in $N \rtimes \pi$, so that the induction goes through.
+ \end{proof}
+  \begin{ex}
+  	(1) Let $G = SL(2, 5)$\index{binary icosahedral group@binary icosahedral group, $SL(2,5)$}. Application of (6.4) a) to the fibration\index{Poincar\'e $3$-sphere} 
+\[S^3/G \rightarrow BG \rightarrow BS^3\]
+gives a description (after (5.12)(2) and (4.19)(2)) of $BSL(2, 5)^+$ as an $S^3$-fibre space over ${BS^3}^+ = BS^3$, the infinite-dimensional quaternionic projective space.\index{quaternionic projective space, $BS^3$} 
+
+(2) Recall from (4.19)(4) that there is a fibration
+\[BMA \longrightarrow BGLUT \overset{B\pi}{\longrightarrow}  BGL(A\oplus A).\]\index{UT@$UT$, ring of $2\times 2$! upper triangular matrices}
+Now $MA$\index{MA@$MA$, additive group of!finite matrices} is abelian, so that $BMA = K(MA, 1) = \Omega K(MA, 2)$ is a nilpotent space (after, for example, (4.8) because it is the fibre of $PK(MA, 2) \longrightarrow K(MA, 2)$ where $PK(MA, 2)$ is contractible, hence nilpotent). Were $B\pi$ quasi-nilpotent, which by (4.19)(4) it isn't, we would then deduce from (6.4) b) that there is a fibration
+\[BMA \longrightarrow BGLUT^+ \longrightarrow  BGL(A\oplus A)^+,\]
+which by (5.12)(3) there isn't.
+  \end{ex}
+
+In (6.4) we obtained sufficient conditions for the plus-construction to preserve fibrations.
+The following necessary condition further explains our preoccupation in (1.6) with epimorphisms
+which preserve perfect radicals.
+\begin{prop}
+	\label{6.8}If both $F\overset{i}{\longrightarrow} E\overset{p}{\longrightarrow} B$ and $F^+\overset{i^+}{\longrightarrow} E^+\overset{p^+}{\longrightarrow} B^+$ are fibrations (of path-connected spaces), then
+\[p_*P\pi_1(E)=P\pi_1(B).\]
+\end{prop}
+\begin{proof}
+ Certainly, after (1.4) c), $p_*P\pi_1(E)\leqslant P\pi_1(B)$. There is in consequence a commuting diagram with both columns and rows exact:
+ \[
+\begin{tikzcd}
+  & P\pi_1(E) \arrow[r,"p_*|"] \arrow[d,hook] &  P\pi_1(B)\arrow[d,hook]  \\
+ \pi_1(F) \arrow[r,"i_*"] \arrow[d,two heads,"{q_{F}}_*"] & \pi_1(E) \arrow[r,"p_*"]\arrow[d,two heads,"{q_{E}}_*"]  &  \pi_1(B) \arrow[d,two heads,"{q_{B}}_*"]  \\
+ \pi_1(F^+) \arrow[r,"i_*^+"] & \pi_1(E^+) \arrow[r,"p_*^+"] &  \pi_1(B^+)  \\
+\end{tikzcd}
+ \]
+Now both $p_*$ and ${q_F}_*$ are onto. So too therefore is $p_*|$, as a diagram chase reveals.
+ \end{proof}
+  
+Note that hypothesis (a) of (6.4) trivially satisfies the condition on $\pi_1(p)$, while a nilpotent $p$ satisfies it by virtue of (1.6) b) (cf. remarks preceding (11.10) ). I have managed to refrain from discussing (6.4) b) in general in this light (!).
+
+
+
+% chapter the_plus_construction_on_a_fibration (end)

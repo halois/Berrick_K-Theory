@@ -1,0 +1,135 @@
+%---------------第七章------------------%
+\chapter{The acyclic space construction} % (fold)
+\label{cha:7the_acyclic_space_construction}
+
+In furtherance of our strategy of getting a grip on the homotopy groups of $X^+$ by identifying fibrations of which it is a part, we now determine the fibre of $q_X \colon   X \longrightarrow X^+$. Since $q_X$ is functorial, so too must be the construction of its fibre. Following [12], we describe the acyclic fibre, $AX = X_\infty$ as an inverse limit of spaces $X_n$ over $X$, each in turn killing off a bit more of the homology of $X$ than those under it. (Note that our $X_n =$ Dror's $A_{n-1}X$, the difference in numeration being a straightforward reflection of our interest in homotopy groups of $X^+$ rather than of $AX = A_\infty X$. Compare (8.1) below.)
+
+This means we take $X_1 = X$, and $X_2$ as the covering space of $X$ with $\pi_1 ( X_2) = P\pi_1(X)$. Then $X_3,X_4,\cdots$ are constructed as follows.
+
+\begin{prop}
+  There is a sequence of spaces
+  \[\cdots \longrightarrow  X_{n+1}\longrightarrow  X_n \longrightarrow  \cdots\longrightarrow  X_3 \longrightarrow X_2\]
+  such that\\
+  (i) $\widetilde{H}_q(X_n)=0$, $q<n$;\\
+  (ii)$X_{n+1}\longrightarrow X_n$ is induced from the path fibration ($n\geqslant 2$)
+  \[K(H_n(X_n),n-1)=\Omega K(H_n(X_n),n)\longrightarrow PK(H_n(X_n),n) \longrightarrow K(H_n(X_n),n)\]
+  (that is,$X_{n+1}=X_n \times_{K(H_n(X_n),n)} PK(H_n(X_n),n)$); and \\
+(iii) $X_n$ is unique up to fibre homotopy equivalence (over $X_{n-1}$), and the construction is functorial up to fibre homotopy.
+\end{prop}\index{acyclic tower}
+Remark. It is easier to check what properties (iii) alludes to than to define the appropriate categories on which the construction behaves as a true functor should.
+\begin{proof}
+Certainly  $X_2$ does what is required of it. We therefore consider $X_{n+1} \rightarrow X_n$, $n \geqslant 2$, supposing $X_n \longrightarrow X_{n-1} \longrightarrow \cdots \longrightarrow X_2$ to have been constructed satisfying (i), (ii) and (iii). At our
+disposal is the choice of map $\theta_n \colon   X_n \longrightarrow K(H_n(X_n), n)$. Since, by hypothesis, $H_{n-1}(X_n) = 0$, we have from the universal coefficient sequence [38 (5.5.3)] a natural isomorphism
+\[\Hom(H_n(X_n),H_n(X_n))\longrightarrow H^n(X_n;H_n(X_n)).\]. 
+But there is also a natural isomorphism [38 (8.1.8)] 
+\[H^n(X_n;H_n(X_n))\longrightarrow [X_n,K(H_n(X_n), n)] .\]
+The composition of these, applied to the identity homomorphism in $\Hom(H_n(X_n), H_n(X_n))$, gives a natural determination of $\theta_n$ up to homotopy. As (ii) dictates, $X_{n+1} \longrightarrow X_n$ is defined to be the pull-back of the path-fibration over $\theta_n$ (in other words, $X_{n+1}$ is the fibre of $\theta_n$). Thus, variation of $\theta_n$ within its homotopy class causes variation of $X_{n+1}$ within its fibre homotopy class,
+
+Finally, the triviality of $H-q(X_{n+1})$, $q \leqslant n$, is established by a Serre spectral sequence argument. For example, $n \geqslant 2$ implies that $K(H_n(X_n), n)$ is simply-connected and consequently its path-fibration {\em orientable}\index{orientable fibration}. So $K = K(H_n(X_n), n-1) \longrightarrow X_{n+1} \longrightarrow X_n$ is also orientable; its Serre homology
+sequence 
+\[H_{2n-2}(K) \longrightarrow \cdots \longrightarrow H_n(K) \longrightarrow  H_n(X_{n+1}) \longrightarrow  H_n(X_n) \overset{\sim}{\longrightarrow}  H_{n-1}(K)\longrightarrow  \cdots\]
+forces $\widetilde{H}_q (X_{n+1}) = 0$ for $q < n+1$ because, by the Hurewicz isomorphism theorem,
+\begin{equation*}
+\widetilde{H}_q(K(H_n(X_n),n-1))=
+\begin{cases}
+0 &q<n-1,\\
+H_n(X_n)&q=n-1,\\
+0 & q=n.\\
+\end{cases}
+\end{equation*}
+
+Here, $H_n(K) = 0$ follows by applying the Hurewicz theorem to the $(n-1)$-skeleton $K^{n-1}$ of $K$, and the exact sequences of $(K, K^{n-1})$:
+\[
+\begin{tikzcd}
+               &   0=\pi_{n}(K)  \arrow[r] \arrow[d] &   \pi_{n}(K,K^{n-1}) \arrow[r] \arrow[d,"\sim"] &  \pi_{n-1}(K^{n-1}) \arrow[d,"\sim"]  \\
+  0=H_n(K^{n-1})  \arrow[r]  &  H_{n}(K)  \arrow[r]   &  H_{n}(K,K^{n-1})    \arrow[r] & H_{n-1}(K^{n-1})  \\
+\end{tikzcd}
+\]
+Of course, $(K, K^{n-1})$ is $(n-1)$-connected [38 (7.6.16)]. Note that, even were $\pi_n(K)$ non-trivial, we could still infer G. Whitehead's generalization of the Hurewicz theorem: $\pi_n(K) \twoheadrightarrow H_n(K)$.
+\end{proof}
+
+\begin{corollary}
+   If $\widetilde{H}_q(Z) = 0$ whenever $q\leqslant n$, then $X_{n+1}\longrightarrow X$induces a bijection $[Z,X_{n+1}] \longrightarrow [Z,X]$.
+ \end{corollary} 
+ \begin{proof}
+  (I am tempted to leave this as an exercise --- but the result is too valuable.) Of course one argues by induction on $n$. For $n = 1$, $Z$ has perfect fundamental group, implying that its image in $\pi_1 (X)$ is also perfect, therefore contained in $P\pi_1 (X) = \ima[\pi_1 (X_2) \hookrightarrow \pi_1 (X)]$. Hence any (pointed) map from $Z$ to $X$ satisfies the conditions of the lifting theorem for covering projectioas and so lifts uniquely to  $X_2$. For $n > 1$, we note that, because $X_{n+1} = X_n \times_K PK$ (where $K =K(H_n(X_n), n)$), the obstruction to lifting a map $Z \longrightarrow X_n$ to $X_{n+1}$ lies in $[Z,K] = H^n(Z; H_n(X_n))$, while that to lifting a homotopy between the projections to $X_n $ of two given (pointed) maps to $X_{n+1}$ lies in
+\[[(Z\times I,Z\times 1 \cup z_0\times I),K] =H^n((Z,z_0)\times (I,1); H_n(X_n)) = H^{n-1}(Z;H_n(X_n)).\]
+(Here $z_0\in Z$ is the long-suppressed basepoint struggling to assert itself.) The universal coefficient theorem [38 (5.5.3)] shows both cohomology groups vanish. One may also argue from the exact sequence (of sets) [38 p. 461]
+\refstepcounter{theorem}
+\begin{equation}
+  [Z, K(H_n(X_n), n-1)]\longrightarrow[Z, X_{n+1}]\longrightarrow [Z, X_n] \longrightarrow [Z, K(H_n(X_n), n)]
+\end{equation}
+Here the extreme left and right terms are again isomorphic respectively to the trivial groups $H^{n-1} (Z; H_n(X_n))$ and $H^n(Z;H_n(X_n))$ [38 (8.1.8)].
+ \end{proof}
+ 
+One important application is to smash products.
+\begin{corollary}
+  A homotopy class of maps $S\wedge T \longrightarrow X$ induces a unique homotopy class of maps $S_m \wedge T_n\rightarrow X_{m+n}$ such that
+  \[
+\begin{tikzcd}
+S_m \wedge T_n \arrow[r] \arrow[d] & X_{m+n} \arrow[d]\\
+S\wedge T \arrow{r} & X\\
+\end{tikzcd}
+  \]
+\end{corollary}
+\begin{proof}
+ We show that $H_q(S_m \wedge T_n) = 0$ for $0 < q < m+n$. The push-out construction for tlie one-point union $S_m \vee T_n$ gives rise to a Mayer-Vietoris sequence, from which $H_q(S_m\vee T_n) = H_q(S_m) \oplus H_q(T_n)$. The K\"{u}nneth formula decomposes $H_q(S_m\times T_n)$ into a direct sum whose summands, with four exceptions, have the form $H_i(S_m) \otimes H_{q-i}(T_n)$ (trivial since $0 < i < m$ or $0 < q-i < n$) or $\tor (H_i(S_m ), T_{q-i-1}(T_n))$ (similarly, trivial). The four exceptions differ from the above by involving a zero-th homology group. Because such a group is torsion-free the two Tor terms vanish, leaving
+ \[H_q(S_m\times S_n) = H_q(S_m)\otimes \Z \oplus \Z \otimes H_q(T_n)\cong H_q(S_m\vee T_n)\]
+Then the result follows from the homology exact sequence for the pair $(S_m\times T_n> S_m\vee T_n)$.
+ \end{proof}
+  
+We are now ready to climb to the top of the tower. From (7.3) with $Z$ a sphere it is clear that $X_{n+1}$ differs from $X_n$ only in respect of $(n-1)$- and $n$-th homotopy groups. So to gain information about any particular homotopy (or homology) group of the inverse limit space
+\[AX = \varprojlim X_n\]
+it is only necessary to climb finitely many steps of the tower. From (7.1) (since each such step is a nilpotent fibration, a property preserved under finite composition (4.6)), and (7.2), we have $\cdots$
+\begin{prop}
+  (i) $AX$ is an acyclic space; \\
+(ii) $AX \longrightarrow X_2$ is a nilpotent fibration;\\
+(iii) for any acyclic space $Z$, the fibration $d_X \colon  AX\longrightarrow X$ induces an isomorphism 
+\[[Z,AX] \longrightarrow [Z,X];\]
+and in particular\\
+(iv) for any map $f \colon   W \longrightarrow X$, any map $f' \colon   AW\longrightarrow AX$, such that
+  \[
+\begin{tikzcd}
+AW \arrow[r,"f'"] \arrow[d,"d_W"] & AX \arrow[d,"d_X"]\\
+W \arrow{r}{f} & X\\
+\end{tikzcd}
+  \]
+commutes, is homotopic over $X$ to $Af\colon   AW \longrightarrow AX$.
+\end{prop}
+Here $Af$ is determined (non-uniquely) by means of (7.1) iii).
+
+If the covering space $p \colon   \bar{X}_P \longrightarrow  X$ corresponds to a normal perfect subgroup $P$ of $\pi_1(X)$, then
+$p \circ  d_{\bar{X}_P}\colon   A\bar{X}_P\longrightarrow X$ enjoys, by (7.5) iii), a property dual to $X \longrightarrow  X_P^+$. Likewise, (5.8) dualizes.
+\begin{prop}
+  Any acyclic map $f\colon  X\longrightarrow Y$ with $\ker\pi_1(f) = P\leqslant \pi_1(X)$ has
+$p \circ  d_{\bar{X}_P}\colon   A\bar{X}_P\longrightarrow X$ as homotopy fibre (up to homotopy equivalence over $X$).
+\end{prop}
+\begin{proof}
+The two fibrations $p \circ  d_{\bar{X}_P}\colon   A\bar{X}_P\longrightarrow X$ and $F_f\longrightarrow X$ share the same universal property with respect to maps $d \colon   A \longrightarrow X$ such that $A$ is acyclic and $f\circ d$ is nulhomotopic. (That $f\circ (p\circ d_{\bar{X}_P}$ is nulhomotopic follows from (5.3), (5.1).)
+\end{proof}
+In combination, (5.3) and (7.6) assert that $A\bar{X}_P \longrightarrow X \rightarrow  X_P^+$ is both a fibre sequence and a cofibre sequence. The case where $P$ is maximal rates a special mention.
+\begin{theorem}
+$AX \overset{d_X}{\longrightarrow} X \overset{q_X}{\longrightarrow} X^+$ is both a fibre sequence and a cofibre sequence.
+\end{theorem}
+In the usual way [38 p.461 ], the fibre sequence extends to the left, with $\Omega X^+$ therefore the homotopy fibre of $d_X$, a fact to be used repeatedly in Chapter 10. (Incidentally, we may safely write $\Omega X^+$ for $\Omega(X^+)$ since $\pi_1(\Omega X) = \pi_2(X)$ abelian implies $(\Omega X)^+ = \Omega X$ .)
+
+Finally, we can apply (6.4) a) to obtain fibrations
+\[X_2^+\longrightarrow X^+ \longrightarrow K(\pi_1(X^+), 1),\]
+ and, for $n \geqslant 2$,
+ \[X_{n+1}^+\longrightarrow X_n^+ \longrightarrow K(H_n(X_n), n).\]
+By means of the resulting homotopy exact sequences and the generalized Hurewicz isomorphism theorem, the following may be deduced by induction.
+\begin{corollary}
+  For $n \geqslant 2$,
+\begin{equation*}
+\pi_q(X_n^+)=
+  \begin{cases}
+0 \quad q<n, \\
+\pi_q(X^+) \quad q\geqslant n,
+\end{cases}
+\end{equation*}
+while
+\[\pi_n(X_n^+)\overset{\sim}{\longrightarrow} H_n(X_n),\]
+\[\pi_{n+1}(X_n^+)\twoheadrightarrow H_{n+1}(X_n).\]
+ \end{corollary} 
+
+% chapter the_acyclic_space_construction (end)

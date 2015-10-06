@@ -1,0 +1,285 @@
+%---------------第三章------------------%
+\chapter{$K_qA (q<0)$ and $K_2A$}
+\label{cha:3k_qa_and_k2a}
+This chapter continues the pre-``plus-construction'' historical survey (with History taking second place to Mathematics). Again, I refer the reader to the book of Bass [3] for $K_q$ details $(q<0)$, while that of Milnor [31] fills in much $K_2$ material. Further references are indicated in Gersten's review [41 pp. 1-40]. On the other hand, topological $K$-theory is discussed at length in Atiyah [1].
+
+An attractive feature of topological $K$-theory that immediately caught the eye of algebraists was the Mayer-Vietoris sequence.\index{Mayer-Vietoris sequence,! -- in topological $K$-theory} (The definition of $K^n(X)$ when $n < 0$ will be given shortly.)
+
+\begin{theorem}
+If $X_1$, $X_2$ are compact CW-complexes of which $X_1 \cap X_2$ is a subcomplex, then there is an exact sequence ($n \leqslant 0$)
+\[ \cdots \longrightarrow K_k^{n-1}(X_1\cap X_2)\longrightarrow  K^n_k(X_1\cup X_2) \longrightarrow K_k^n(X_1) \oplus K_k^n(X_2)\longrightarrow K_k^n(X_1\cap X_2) \longrightarrow \cdots K_k^0(X_1\cap X_2).\]
+\end{theorem}
+
+As before, what this tells us about the behaviour of the rings $k(X_i)$ serves as a paradigm. From the co-Cartesian square (denoted by the symbol $\ulcorner$ )
+ \[
+ \begin{tikzcd}
+ X_1\cap X_2 \arrow[hook]{r} \arrow[hook]{d} \arrow[dr, phantom, "\ulcorner"] &
+  X_2 \arrow[hook]{d}\\
+ X_1 \arrow[hook]{r} & X_1\cup X_2\\
+ \end{tikzcd}
+ \]
+we obtain a Cartesian square (indicated by $\lrcorner$ )
+\[
+\begin{tikzcd}
+k(X_1\cup X_2) \arrow{r}{g_2} \arrow{d}{g_1} \arrow[dr, phantom, "\lrcorner"] & k(X_2) \arrow{d}{f_2}\\
+k(X_1) \arrow{r}{f_1} & k(X_1\cap X_2) \\
+\end{tikzcd}
+\]
+By point-set topology (in particular, the Tietze extension theorem), one notes that all four homomorphisms are in fact surjective. So the obvious question to ask is, what can one do with a Cartesian square in $\mathbb{R}ing$
+\refstepcounter{theorem}
+\begin{equation}
+  \begin{tikzcd}
+A \arrow{r}{g_2} \arrow{d}{g_1} \arrow[dr, phantom, "\lrcorner"]& A_2 \arrow{d}{f_2}\\
+A_1 \arrow{r}{f_1} & A' \\
+\end{tikzcd}
+\end{equation}
+given, if absolutely necessary, certain surjectivity assumptions on (most naturally) $f_1$ and/or $f_2$. This question played a leading role in motivating the search for further algebraic $K$-groups. We shall see, in (3.5) and (3.8) below, to what extent it proved possible to define $K$-groups so as to give it a convincing answer.
+
+There is an especially simple device for defining negative(ly indexed) $K$-groups in topology. It uses a modified suspension functor $S \colon   \mathbb{T}op \longrightarrow \mathbb{T}op$\index{Top@$\mathbb{T}op$} that augments a space by a (disjoint) base-point if it does not already have one, and then applies the usual reduced suspension (viz. smash product with a circle). Then one takes $K^{-n}_kX$ to be $\widetilde{K}_k^0S^nX$. Sure enough, there is an analogous algebraic process: embed the pseudo-ring\index{pseudo-ring} $mA$ of all finite matrices in the ring $CA$\index{cone of a ring@cone of a ring, $CA$} of all {\em locally finite} matrices over $A$ (that is, those with only finitely many non-zero entries in each row or column) whose entries constitute a finite subset of $A$. In this ring $mA$ forms a two-sided ideal, and the {\em suspension} $SA$\index{suspension of a ring, $SA$} is then defined to be the quotient ring (just as topological suspension is formed from the cone by identifying an embedded copy of the original space with the apex of the cone). Further aspects of this construction will be discussed in Chapter 11. Again we set, for $n>0$,
+\refstepcounter{theorem}
+\begin{equation}
+ (a)\quad \quad K_{-n}A=K_0S^n A.
+\end{equation}
+
+
+This creates a source of possible confusion. For in Chapter 2 we compared $K_1 A$ with $K^{-1}_k X$ but now find ourselves looking instead for $K^1_kX$. At least in the complex case the difficulty is easily cleared up. When $k = \mathbb{C}$ the periodicity theorem reveals that $\widetilde{K}_{\mathbb{C}}^0 S^2X \cong K^0_\mathbb{C} X$. This allows
+$K^n_\mathbb{C} X$ to be defined for all integers $n$, with $K^n_\mathbb{C} X \cong K^{n+2}_\mathbb{C} X$ and in particular, reassuringly,
+$K^{-1}_\mathbb{C} X \cong K^{1}_\mathbb{C} X$. Note too that $K^0_\mathbb{C} X \cong K^{1}_\mathbb{C} SX$. It was evidently a vital boost to the credibility of the above algebraic suspension functor when the following fact was established.
+\begin{equation}
+(b) \quad \quad  k_0\Lambda\cong K_1 S\Lambda.
+\end{equation}
+
+Further stature was acquired by the following means. A reformulation of the periodicity theorem is that, for $n \geqslant 0$,
+\[K_\mathbb{C}^{-n}(X\times S^1)\cong K_\mathbb{C}^{-n}X\oplus K_\mathbb{C}^{-n-1}X.\]
+Thus $K_\mathbb{C}^{-n-1}X$ is the ``non-$K_\mathbb{C}^{-n}$ part'' of $K_\mathbb{C}^{-n}(X\times S^1)$. Now consider the ``Laurent polynomial ring''\index{Laurent polynomial ring}  $\mathbb{C}(X)[t, t^{-1}]$: we have
+\[\mathbb{C}(X)\subset \mathbb{C}(X)[t,t^{-1}]\subset \mathbb{C}(X\times S^1)\]
+where the projection function
+\[t\colon  X \times S^1 \longrightarrow S^1 \hookrightarrow \mathbb{C}\]
+is non-zero and thereby invertible. Moreover, under a suitable norm $\mathbb{C}(X \times S^1)$ can be regarded as the completion of $\mathbb{C}(X)[t, t^{-1}]$, so that the more algebraically presented $\mathbb{C}(X)[t, t^{-1}]$ serves as a fair approximation. On the other hand, there is also an embedding (with Kronecker delta notation)
+\[A[t, t^{-1}]\hookrightarrow SA, \]
+\[t^r\mapsto (\delta_{i,j+r}). \]
+
+(While the locally finite matrix $(\delta_{i,j-1})$ is only a left inverse to $(\delta_{i,j+1})$ in CA, it becomes a two-sided inverse modulo finite matrices.) So
+\[\sum a_r t^r \mapsto \begin{pmatrix}
+a_0 & a_{-1} &a_{-2} &a_{-3}& \cdots \\
+a_1 & a_{0} &a_{-1} &a_{-2}& \cdots \\
+a_2 & a_{1} &a_{0} &a_{-1}& \cdots \\
+\vdots & \vdots &\vdots &\vdots &\ddots\\
+\end{pmatrix}.\]
+Based on the above, our hope would be that $K_{-n}A = K_{-n+1} SA$ is a direct summed of $K_{-n+1} A$, the other summand comprising $K_{-n+l}$ terms. The realisation this hope is often described as ``the fundamental theorem''\index{fundamental theorem}.
+
+\begin{theorem}
+For $n\geqslant0$, the inclusions
+\[A \hookrightarrow A[t^{\pm 1}]\hookrightarrow  A[t,t^{-1}]\hookrightarrow SA\]
+induce an exact sequence
+\[0 \longrightarrow K_{-n+1} A \longrightarrow K_{-n+1}A[t] \oplus K_{-n+1}A[t^{-1}] \longrightarrow K_{-n+1}A[t,t^{-1}]\longrightarrow K_{-n}A \longrightarrow 0\]
+whose monomorphism and epimorphism are (naturally) split.
+\end{theorem}\index{fundamental theorem}
+In consequence the Mayer-Vietoris sequence\index{Mayer-Vietoris sequence,! -- in algebraic $K$-theory} question (among others) is effectively reduced to a problem about $K_1$ and $K_0$. One finds $\cdots$
+\begin{theorem}
+The Cartesian square (3.2) induces an exact sequence $(q\leqslant 1)$
+\[K_1A\longrightarrow \cdots \longrightarrow K_q A \longrightarrow K_q A_1\oplus K_qA_2 \longrightarrow K_q A' \longrightarrow K_{q-1}A\longrightarrow \cdots,\]
+provided that either $f_1$ or $f_2$ is surjective.
+\end{theorem}
+By way of example, regular rings form an especially tractable class with respect to $K_0$, etc. Recall that $A$ is said to be (left) {\em regular}\index{regular ring} if it is left Noetherian and every f.g. left module over $A$ has a projective resolution of finite length. These properties allow one to replace $K_0A$ by the Grothendieck group of the category of all f.g. $A$-modules, which does not suffer the constraints applying to projective modules. The class of regular rings includes the coordinate rings of nonsingular (hence ``regular'') affine algebraic varieties and is closed under passage from $A$ both to the polynomial ring $A[t]$ and to the Laurent polynomial ring\index{Laurent polynomial ring} $A[t,t^{-1}]$. In fact neither procedure changes $K_0$, and $K_1$ is unaltered by the former. In conjunction with (3.4), this says
+\begin{prop}
+  If $A$ is left regular, then for $q = 0, 1$
+\[K_qA \longrightarrow K_qA[t]\]
+ is an isomorphism, and for $q < 0$ 
+ $$K_qA = 0 .$$
+\end{prop}
+
+\section*{$K_2A$}
+We now turn to the altogether thornier question of defining higher $K$-functors $K_q$, $q \geqslant 2$. Our experience to date suggests three criteria which ought to be met, namely the appropriate extensions of (3.3), (3.4) and (3.5) above. As a first step, we introduce another algebraic $K$-functor, Milnor's $K_2$. Recall from Chapter 1 the (natural) homomorphism $\varphi\colon   StA \longrightarrow GLA$, whose cokernel was deemed to be $K_1A$. We now define $K_2 A$ to be its kernel. Again, this is evidently functorial. Application of (1.1), in which we let first $m$, then $n$, increase to infinity, leads to $\cdots$
+\refstepcounter{theorem}
+\begin{equation}
+  K_2A =\ker (\varphi\colon  StA\longrightarrow GLA) = Z(StA).
+\end{equation}
+
+A further description in terms of $EA$ will be given in Chapter 9. 
+
+To produce an example of a non-trivial $K_2$-group we consider the continuous epimorphism  $\varphi\colon  St\R \longrightarrow E\R = SL\R$ (from Chapter 1). This lifts to a map $\widetilde{\varphi}$ from $St \R$ to the universal covering space $\widetilde{SL \R}$, which sends $x_{ij}^\lambda$ to the final point of the unique path in $\widetilde{SL \R}$ starting at the identity and covering the path in $SL\R$
+\[[0, 1] \longrightarrow SL\R, \quad t\mapsto e_{ij}^{t\lambda} .\]
+Now the covering space lifting theorem ensures that the group action on $SL\R$ lifts to one on $\widetilde{SL \R}$, while the unique lifting property makes $\widetilde{\varphi}$ a homomorphism as well. Further, because $\varphi$ is a suijection and a covering projection is a local homeomorphism, the image of $\widetilde{\varphi}$ must contain some neighbourhood of the identity in $\widetilde{SL \R}$, and thence contains the subgroup it generates,
+namely the whole of $\widetilde{SL \R}$. In particular, if we look at the kernels of the projections to $\widetilde{SL \R}$ in the commuting diagram
+\[
+\begin{tikzcd}[column sep=tiny]
+K_2\R \arrow{rd} & & & & \pi_1(SL \R) \arrow{dl}\\
+ & St\R \arrow{rd}{\varphi} \arrow[two heads]{rr}{\widetilde{\varphi}} & & \widetilde{SL\R} \arrow{dl} & \\
+ & & SL\R & &\\
+\end{tikzcd}
+\]
+
+then we see that $\widetilde{\varphi}$ restricts to an eplmorphism
+\[K_2 \R\longrightarrow \pi_1(SL\R).\]
+(More generally, there is an epimorphism
+\[K_2 \R(X)\twoheadrightarrow \pi_1(SL\R(X)) \cong \pi_1(GL\R(X))\]
+-the isomorphism being due to the flbration
+\[SL \R(X) \longrightarrow GL \R(X) \longrightarrow \R(X)^*\]
+whose base $\R(X)^*$ has the homotopy type of a discrete space. However, similarly to before $\pi_1 (GL \R(X)) $ reduces to
+\[[SX,GL\R] \cong K_\R^{-1}SX = K_\R^{-2}X.\text{)}\]
+Now by (2.4) $\pi_1(SL \R) \cong \pi_1(SL_3 \R)$, and Gram-Schmidt orthogonalisation makes the special orthogonal group $SO_3$ a deformation retract of $SL_3 \R$. On the other hand, $SO_3$ is homeomorphic to $3$-dimensional real projective space, whose fundamental group is cyclic of order $2$. The nontrivial element of $\pi_1 (SL \R)$ must correspond to a loop in $SL \R$, based at $I$, whose lifting to $\widetilde{SL \R}$ begins but does not terminate at the identity. A representative is therefore given by the loop
+\[t\mapsto (e_{21}^{-t}e_{12}^{2t})^4\]
+since when $t=1$ certainly ${\begin{pmatrix}
+  1 & 2\\
+  -1& -1\\
+\end{pmatrix}}^4=I$. However, its inverse image $(x_{21}^{-1}x_{12}^{2})^4$ in $K_2 \R$ 
+evidently comes all the way from $K_2 \Z$ wherein it must also have been non-trivial. In fact it can be further shown that the epimorphism
+\[K_2\Z \longrightarrow \pi_1(SL\R) = \{1,-1\},\]
+\[(x_{21}^{-1}x_{12}^{2})^4\mapsto -1\]
+is an isomorphism.
+
+Next observe that $(x_{21}^{-1}x_{12}^{2})^4\mapsto (x_{21}^{-1})^4=x_{21}^{-4}=1$ via the natural map from $K_2\Z$ to $K_2(\Z/2\Z)$. This looks ominous for $K_2(\Z/2\Z)$. True enough, it turns out that $\Z \longrightarrow \Z/n\Z$ always induces an epimorphism
+\[K_2 \Z \twoheadrightarrow K_2(\Z/n\Z)\]
+which is non-zero if and only if $n \equiv 0 (mod 4)$.
+
+Additionally, there have been extensive computations for $K_2$ of fields, skew-fields and related rings. We do not pursue them here, as our attention is more on structural matters. I still have to argue the case for the present definition of $K_2$; the satisfactory relation with the topological $K_\R^{-2}$ has already been noted. We now check whether there are extensions of (3.3), (3.4) and (3.5). First, (3.3) does indeed have a part (c) $\cdots$
+\[(c) \quad \quad K_1 A \cong K_2SA \leqno(3.3)\]
+  
+
+Secondly, the fundamental theorem\index{fundamental theorem} presents no problem.\\
+(3.4)$'$ The inclusions
+\[A \hookrightarrow A[t^{\pm 1}]\hookrightarrow  A[t,t^{-1}]\hookrightarrow SA\]
+induce an exact sequence
+\[0 \longrightarrow K_{2} A \longrightarrow K_{2}A[t] \oplus K_{2}A[t^{-1}] \longrightarrow K_{2}A[t,t^{-1}]\longrightarrow K_{1}A \longrightarrow 0\]
+whose monomorphism and epimorphism are (naturally) split.
+
+
+Furthermore, the monomorphism $K_2A \longrightarrow K_2A[t]$ appearing in (3.4)' is again an isomorphism when $A$ is left regular \index{regular ring}(cf. (3.6)). This is all very encouraging: if perhaps too much so, then the Mayer-Vietoris\index{Mayer-Vietoris sequence,! -- in algebraic $K$-theory} result should give the reader pause.
+\begin{theorem}
+The Cartesian square (3.2) induces an exact sequence 
+\[ \longrightarrow K_2 A \longrightarrow K_2 A_1\oplus K_2A_2 \longrightarrow K_2 A' \longrightarrow K_{1}A\longrightarrow K_1 A_1\oplus K_1A_2 \longrightarrow \cdots\]
+provided that both $f_1$ and $f_2$ are surjective.
+\end{theorem}
+While this is quite a fair extension of (3.5) it would obviously be preferable not to have to strengthen the weaker condition on $f_1, f_2$ appearing there. So perhaps (3.8) holds under the weaker hypothesis of (3.5), namely, that only one of $f_1, f_2$ need be surjective. Alternatively, if this is the best one can do with this definition of $K_2$, then perhaps it could be modified slightly so as to provide a straight extension of (3.5). The following counter example (due to Swan [39]) dashes both these hopes.
+\begin{ex}
+  Let A be a commutative ring. Two distinguished subrings of its ring of
+$2\times 2$-matrices, $M_2 A$, comprise the diagonal matrices, which we may write as $A\oplus A= \begin{pmatrix}
+A  & 0\\
+0& A\\
+\end{pmatrix}$, and the upper triangular matrices $UT =\begin{pmatrix}
+A  & A\\
+0& A\\
+\end{pmatrix}$\index{UT@$UT$, ring of $2\times 2$! upper triangular matrices}.
+\end{ex}
+The obvious projection
+\[p\colon  UT\longrightarrow A\oplus A,\quad \begin{pmatrix}
+a  & b\\
+0& d\\
+\end{pmatrix} \mapsto \begin{pmatrix}
+a  & 0\\
+0& d\\
+\end{pmatrix}\]
+is clearly a split epimorphism; we pull it back over the diagonal monomorphism 
+\[d\colon  A\longrightarrow A\oplus A,\quad a \mapsto \begin{pmatrix}
+a  & 0\\
+0& a\\
+\end{pmatrix}.\]
+The fibre-product may be identified with the ring $A[e]/(e^2)$ of dual numbers over $A$, which is to say there is a Cartesian square 
+\[\begin{tikzcd}
+A[e]/(e^2) \arrow{r} \arrow{d} \arrow[dr, phantom, "\lrcorner"]& UT \arrow{d}{p}\\
+A \arrow{r}{d} & A\oplus A \\
+\end{tikzcd}.\]
+We show that
+
+{\em for no functor $K_2$\index{Mayer-Vietoris sequence,! -- not in higher algebraic $K$-theory} does this Cartesian square induce a sequence as in (3.8) which is exact at $K_1A[e]/(e^2)$.
+}
+
+Since any functor must convert a left inverse to a left inverse, this amounts to proving that the exact sequence
+\[K_1 A[e]/(e^2) \longrightarrow K_1A\oplus K_1UT  \longrightarrow K_1(A \oplus A)\]
+cannot begin with a monomorphism. Now $A^*$ is a natural direct summand of $K_1A$ (1.12), and certainly $(A[e] /(e^2))* \longrightarrow A^*$ is no monomorphism (for example, the former contains $1 + Ae$). Thus it suffices to prove that
+\[K_1UT\longrightarrow K_1(A\oplus A) = K_1A\oplus K_1A\]
+is an isomorphism. Since $K_1 A = H_1 (GLA)$ (trivial integral coefficients to be assumed), this is just a special case of $\cdots$
+ \refstepcounter{theorem}
+\begin{equation}
+ \pi_*\colon   H_*(GLUT) \longrightarrow H_*(GL(A \oplus A)) \text{ is an isomorphism.}
+\end{equation}
+ 
+Here $\pi\colon   GLUT \longrightarrow GL( A \oplus A)$ is effectively induced by $p$---“effectively” because after a permutation of the basis elements of $A^{2n}$ we take $GL_nUT$ to consist of invertible matrices $\begin{pmatrix} \alpha & \beta \\0 &\delta\\  
+\end{pmatrix}$ in $ M_2(M_nA)$, with the case $\beta = 0$ yielding $GL_n(A \oplus A)\cong GL_nA \times GL_nA$. As befits the name, $GLUT$ has enough elements to make
+\[\pi\colon  \begin{pmatrix}
+  \alpha & \beta \\0 &\delta
+\end{pmatrix} \mapsto \begin{pmatrix}
+  \alpha & 0 \\0 &\delta
+\end{pmatrix}\]
+an epimorphism, again split by the obvious inclusion map $GL(A \oplus  A) \hookrightarrow GLUT$. So $\pi_*$ has a right inverse and it remains only to check that, regarded as an endomorphism of $GLUT$, $\pi$ induces the identity map on $H_*(GLUT)$. This will be an application of the following highly useful lemma (to resurface in Chapter 11), whose proof is deferred until the end of this Chapter.
+\begin{lemma}
+  Let $\rho \colon   G \longrightarrow G$ be an endomorphism of a group $G$ which is the direct limit of subgroups $G_\lambda,\lambda \in \Lambda $, such that $\rho(G_\lambda) \leqslant G_\lambda$. Suppose that for each $\lambda \in \Lambda$ there exist $\mu=\mu_\lambda \in \Lambda$ (with $\lambda \leqslant \mu$), an element $a \in G_\mu$ and a homomorphism $\phi \colon   G_\lambda \longrightarrow C_{G_\mu} (G_\lambda)$ such that, 
+for all $g\in G_\lambda$,
+\[g\phi (g) = a\rho(g)\phi(g)a^{-1} .\]
+Then
+\[\rho_* = \id \colon   H_*(G) \longrightarrow H_*(G).\]
+\end{lemma}
+
+Application to the present situation encounters one problem: the centralizer of $GL_nUT$ in $GLUT$ is too small for our purposes. Therefore consider instead the normal subgroup $H$ of $GLUT$ comprising $\begin{pmatrix}
+  \alpha & \beta \\ 0 &\delta
+\end{pmatrix}$ with $\alpha = I$. (So $GLUT$ is the semi-direct product $H \rtimes GLA$.) For each $n$, $\pi$ restricts to an endomorphism of $H_n = H\cap GL_nUT$. Now define
+\[\phi\colon   H_n \longrightarrow C_{H_n}(H_{2n})\]
+\[g=\begin{pmatrix}
+  I & \beta \\ 0&\delta\\
+\end{pmatrix} 
+\mapsto 
+\begin{pmatrix}
+  I & 0 &0 &\beta \\ & I&0&0 \\ & & I&0 \\ 0& & &\delta
+\end{pmatrix}=(I\oplus I\oplus I\oplus \delta)e_{14}^\beta ,\]
+
+the last notation employing the isomorphism $GL_2(M_{2n}A) \cong GL_4(M_nA)$. Choose too $a = e_{43}^{-1}$. Then
+
+\begin{equation*}
+\begin{array}{rcl}
+g \cdot \phi(g) & = & (I\oplus I\oplus \delta \oplus I) e_{13}^\beta \cdot (I\oplus I\oplus I \oplus \delta ) e_{14}^\beta \\
+& =& (I\oplus I\oplus \delta \oplus \delta ) e_{14}^\beta [e_{14}^{-\beta},e_{43}^{-1}] \\
+& = & e_{43}^{-1}(I\oplus I\oplus \delta \oplus I ) \cdot (I\oplus I\oplus I \oplus \delta )e_{14}^{\beta}e_{43}^{1} \\
+& =&a\pi(g)\cdot \phi(g) a^{-1} .\\
+\end{array}
+\end{equation*}
+
+It follows from (3.11) that $\pi$ induces the identity on $H_*(H)$. Meanwhile, $\pi$ restricts to the identity on the complement $GLA$ of $H$. Hence $\pi$ induces the identity automorphism on the $E^2$-terms $H_p(GLA; H_q(H))$ of the Lyndon-Hochschild-Serre spectral sequence converging to $H_*(GLUT)$ and thence the identity on $H_*(GLUT)$ itself.
+
+One reason I have felt it worthwhile providing details of this construction is that it serves as a good example to bear in mind when over the next few chapters we study in some depth those  maps which induce isomorphisms in homology. For future reference, note that $GLUT \cong MA \rtimes GL(A \oplus A)$ where $MA = \varinjlim M_nA$\index{MA@$MA$, additive group of!finite matrices} is an abelian group under matrix addition. 
+
+This concludes the chapter, save for the proof of the technical Lemma 3.11 . Faint-hearted readers may prefer to pass directly to Chapter 4, which will make its own demands on their energies.
+\begin{proof}[Proof of (3.11)]
+An informal comment first, before the technicalities commence. Note that $\rho$ only differs from the identity endomorphism, $\id$, because of the intrusion of conjugation by $a$. Now it is well known that inner automorphisms of groups induce the identity map on their homology, so that in homology this distinction disappears. The purpose of $\phi$ is to make
+\[\eta\colon   G_\lambda \times C_{G_\mu}(G_\lambda) \longrightarrow  G_\mu, \quad (g_0,g_1)\mapsto g_0\cdot g_1\]
+a homomorphism, thereby allowing an inductive argument through the K\"{u}nneth formula.
+
+Because the homology functor preserves direct limits, it is enough to show that all the 
+inclusions $G_\lambda \hookrightarrow G$ induce the same homology homomorphisms as the maps $\rho\colon   G_\lambda \longrightarrow G$. (Note that we do not bother to distinguish notationally between $\rho$ and its restrictions.) The hypotheses set up, for each $\lambda \in \Lambda$, a chain
+\[G_\lambda =G_{\lambda _0}\leqslant G_{\lambda _1}\leqslant G_{\lambda _2}\leqslant \cdots \]
+where  $\lambda_{n+1}=\mu_{\lambda_n} (n\geqslant 0)$. For my typist's sake, abbreviate to $G_n= G_{\lambda_n}$. So it suffices to establish, by induction on $n \geqslant 1$, that for $0<q \leqslant n$
+ \[(\rho_*-\id)\circ {i_n}_*\colon  H_q(G_0)\longrightarrow H_q(G_n)\]
+is trivial, where $i_n \colon   G_0 \hookrightarrow G_n$. For $n = 1$ this is immediate from the observation that 
+\[\rho(g)^{-1}g\in [G_1, G_1 ] = \ker (G_1 \longrightarrow H_1(G_1)).\]
+Assume therefore that $(\rho_*-\id)\circ {i_{n-1}}_*$, and hence
+\[(\rho_*-\id)\circ {i_n}_*=j_* \circ (\rho_*-\id)\circ {i_{n-1}}_*\]
+(where $j \colon   G_{n-1}\longrightarrow G_n$), is the zero homomorphism on $H_q(G_0)$ if $0<q<n$. As a result of the simplification this forces on the map of exact K\"{u}nneth sequences (with $i$ of course standing for $i_{n-1}$)
+\[\begin{tikzcd}
+\sum_{q=0}^n H_q(G_0)\otimes H_{n-q}(G_0) \arrow[tail]{r} \arrow{d} &
+ H_n(G_0\times G_0) \arrow[two heads]{r} \arrow{d}{(\rho i\times i)_*-(i\times i)_*} &
+  \sum_{q=0}^{n-1}\tor (H_q(G_0),H_{n-q-1}(G_0)) \arrow{d}\\
+\sum_{q=0}^n H_q(G_{n-1})\otimes H_{n-q}(G_{n-1}) \arrow[tail]{r} &
+H_n(G_{n-1}\times G_{n-1}) \arrow[two heads]{r} &
+\sum_{q=0}^{n-1}\tor (H_q(G_{n-1}),H_{n-q-1}(G_{n-1})) \\
+\end{tikzcd}\]
+
+we have that
+\[((\rho \circ i\times i)_*-(i\times i)_*)\circ {\Delta_0}_*=(\rho_*-\id)\circ i_* \otimes 1 = {in_{L}}_* \circ (\rho_*-\id)\circ i_*\]
+
+where
+\[\Delta_k \colon   G_k \longrightarrow G_k \times G_k, \quad g_k \mapsto (g_k,g_k);\]
+\[in_L\colon  G_{n-1}\longrightarrow G_{n-1} \times G_{n-1},\quad  g_{n-1} \mapsto (g_{n-1},1).\]
+(Thus $\eta\circ in_L=j\colon   G_{n-1}\longrightarrow G_n$.)
+If we let $\hat{a}\colon   G_n\longrightarrow G_n$ denote conjugation by $a$, then the main assumption states that 
+\[\eta \circ (\id \times \phi)\circ \Delta_{n-1} =\hat{a} \circ \eta \circ (\rho\times \phi)\circ \Delta_{n-1},\]
+from which we deduce that on $H_n(G_0)$
+\[\begin{array}{ccl}
+0 & =& \eta_* \circ (\rho \times \phi)_* \circ {\Delta_{n-1}}_* \circ i_*-\eta_* \circ (\id \times \phi)_* \circ {\Delta_{n-1}}_*\circ i_* \\
+ & =&\eta_* \circ (\id \times \phi)_* \circ ((\rho \times \id)_* -\id) \circ (i\times i)_* \circ {\Delta_0}_* \\
+ & =&\eta_* \circ (\id \times \phi)_* \circ {in_L}_* \circ (\rho_* -\id) \circ i_* \\
+ & =& j_*\circ (\rho_* -\id) \circ i_* \\
+ & =&(\rho_* -\id) \circ {i_n}_*
+\end{array}
+\]
+This completes the inductive step.
+\end{proof}

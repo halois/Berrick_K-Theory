@@ -1,0 +1,167 @@
+%----------------13章------------
+\chapter{$\lambda$-ring structure} % (fold)
+\label{cha:13lambda_ring_structure}\index{lambda-ring@$\lambda$-ring}
+The objective here is to observe how the spectrum $\bar{\mathbf{K}}A$, or equally its associated cohomology theory $\bar{K}A^n(X) = [X, \bar{K}A_{(n)}]=[X,(BGLS^nA)^+_{n+1}]$, enjoys a rich structure by virtue of the tensor product and exterior power constructions. The former leads to a graded multiplication and then the latter to the full $\lambda$-ring properties (first studied in connection with representation rings and topological $K$-theory --- see [2], [25]). In particular, these extra data carry over to the graded group $K_*A = \bigoplus K_nA$.
+
+An exposition of multiplication is presented in Loday [29], with such thoroughness that there is nothing to be gained by repeating it here. Instead I offer the following treatment, Its key idea is to view the tensor product of a $p\times p$-matrix over $A$ with a $q\times q$-matrix over $A'$ as defining, not a $pq\times pq$-matrix over $A \otimes A'$ (recall $\otimes$ always means $\otimes_\Z$), but a $p\times p$-matrix of $q\times q$-matrices over$ A \otimes A'$. If $\alpha = (a_{ij}) \in M_pA$ and $\alpha' = (a'_{rs}) \in M_qA'$, then we obtain $a_{ij}\otimes \alpha'$ as the $(i, j)$-th such matrix, where $a_{ij}\otimes \alpha'$ is a $q\times q$-matrix whose $(r, s)$-entry is $a_{ij}\otimes a'_{rs} \in A \otimes A'$. That is,
+\[(\alpha,\alpha')\mapsto \begin{pmatrix}
+  a_{11}\otimes \alpha' &\cdots & a_{1p}\otimes \alpha' \\
+  \vdots & &\vdots \\
+  a_{p1}\otimes \alpha' &\cdots & a_{pp}\otimes \alpha' \\
+\end{pmatrix}, a_{ij}\otimes \alpha' =
+\begin{pmatrix}
+  a_{ij}\otimes a'_{11} &\cdots & a_{ij}\otimes a'_{1q} \\
+  \vdots & &\vdots \\
+  a_{ij}\otimes a'_{q1} &\cdots & a_{ij}\otimes a'_{qq} \\
+\end{pmatrix}\]   
+(In other words, we stop short of identifying $A^p\otimes {A'}^q$ with $(A \otimes A')^{pq}$.)
+
+This defines a (functorial) ring homomorphism
+\[M_pA \otimes M_qA' \longrightarrow M_p(M_q(A \otimes A')),\]
+which is compatible with the inclusions $M_pA \hookrightarrow M_{p+k}A$, $M_qA' \hookrightarrow M_{q+k}A'$ given by direct sum with the $k\times k$-zero matrix. So there is no difficulty in passing to the limits $mA$, $mA'$ respectively, the pseudo-rings of finite matrices over $A$, $A'$ discussed in Chapter 1. The resulting pseudo-ring homomorphism
+\[mA \otimes mA' \longrightarrow m(m(A \otimes A'))\]
+ composes with the natural isomorphism
+ \[\gamma^* \colon  m(m(A \otimes A')) \longrightarrow m(A \otimes A')\]
+of (1.13) to yield a natural pseudo-ring homomorphism 
+\[mA \otimes mA'\longrightarrow m(A \otimes A').\]
+Again using the techniques of Chapter 1, we pass to the associated monoids\index{monoid,! $mA$ as --}, where restriction invertible elements determines a group homomorphism
+\[\mu \colon  (mA \otimes mA')^* \longrightarrow GL(A \otimes A').\]
+
+To finish the construction, we need only (!) exhibit a monoid homomorphism
+$mA \times mA \longrightarrow mA \otimes mA$, so that restriction to invertibles gives the required group homomorphism
+$GLA \times GLA \longrightarrow GL(A \otimes A')$, all ready for the classifying-space functor and plus-construction.
+Alas, the lack of a multiplicative identity in $mA$, $mA'$ puts paid to this attempt at elegance. As a substitute, we define monoid homomorphisms, for each $k, p, q \in \N$,
+\[\nu_{p,q}^k\colon M_pA \times M_qA' \longrightarrow mA \otimes mA'\]
+\[(\alpha, \alpha') \mapsto \alpha \otimes I_{q+k} + I_{p+k} \otimes  \alpha' +  \alpha \otimes  \alpha'
+= ( \alpha \otimes I_{q+k}) \ding{73}(I_{p+k}\otimes \alpha').\]
+
+Clearly $\nu_{p+1,q+1}^k$ restricts to $\nu_{p,q}^{k+1}$; also
+\[\nu_{p,q}^{k+1} (\alpha, \alpha') \ding{73} \nu_{p,q}^k(\alpha,0) \ding{73} \nu_{p,q}^k (0,\alpha') = \nu_{p,q}^k(\alpha,\alpha') \ding{73} \nu_{p,q}^{k+1}(\alpha,0) \ding{73} \nu_{p,q}^{k+1} (0,\alpha').\]
+Restriction to invertibles, and composition with $\mu$, produces natural group homomorphisms 
+\[\mu_{p,q}^k \colon  GL_pA \times GL_qA' \longrightarrow GL(A \otimes A'),\]
+leading (thanks to (5.6)) to
+\[{B\mu_{p,q}^k}^+ \colon  {BGL_pA}^+ \times {BGL_qA'}^+ \longrightarrow {BGL(A \otimes A')}^+.\]
+
+Now write $V_p = BGL_pA^+$, $W_q = BGL_q{A'}^+$. To obtain a map factoring through $V_p \wedge W_q$, we take a representative for
+\[[{B\mu_{p,q}^k}^+]- [{B\mu_{p,q}^k}^+\circ in_V] - [{B\mu_{p,q}^k}^+\circ in_W]\]
+in the abelian group
+\[[V_p \times W_q, BGL(A \otimes A')^+] = \bar{K}A \otimes A'(V_p \times W_q)\]
+(where $in_V\colon   V_p \hookrightarrow V_p \times W_q$, etc.\ ). Any such representative must be nulhomotopic on $V_p \vee W_q$. By using the homotopy extension property for the CW-pair $(V_p \times W_q, V_p \vee W_q)$, we can find one such which is actually trivial there, and thereby factors through the quotient space $V_p \wedge W_q$ as desired, yielding $\theta_{p,q}^k\colon  V_p \wedge W_q \longrightarrow BGL(A \otimes A')^+$. Now one may deduce from ($\ding{72}$) that the homotopy class of $\theta_{p,q}^k$ is independent of $k$. Then, because $\nu_{p+1,q+1}^{k}|= \nu_{p,q}^{k+1}$, so too
+$\theta_{p,q}^k| \simeq \theta_{p,q}^{k+1}$. In this way, a natural class of maps
+\[\theta \colon  BGLA^+ \wedge {BGLA'}^+ \longrightarrow {BGLA \otimes A'}^+\]
+may be defined, whose restriction to each $V_p \wedge W_q$ is a unique homotopy class.
+
+The next stage of the project is routine verification of bilinear, associative and commutative properties, and even independence of the class of $\theta$ from the only real choice we have made, namely the bijection $\gamma\colon  \N \longrightarrow \N \times \N$. A crucial lemma here is to be found in [29]. (Note that $\delta_{r,s}$ = Kronecker delta.)
+
+\begin{lemma}
+  Let $u \colon  \N\longrightarrow \N$ be an injection, inducing $u. \colon  GLA\longrightarrow GLA$ by means of
+  \[u.(\alpha)_{r,s} = \delta_{r,s} \quad \mbox{if } (r, s) \notin u(\N) \times u(\N),\]
+  \[u.(\alpha)_{u(i),u(j)} = \alpha_{i,j}.\]
+Then $Bu.^+ \simeq \id \colon  BGLA^+ \longrightarrow BGLA^+ $.
+\end{lemma}
+Finally, (10.7) applies.
+\begin{theorem}
+  There is a natural product of spectra
+  \[\bar{K}A_{(m)}\wedge \bar{K}A'_{(n)} \longrightarrow \bar{K}A \otimes A'_{(M+N)},\]
+which induces a bilinear, associative multiplication
+\[\bar{K}A^m(X) \times \bar{K}A^n(Y) \longrightarrow \bar{K}A \otimes {A'}^{m+n}(X \wedge Y).\]
+\end{theorem}
+The first specific instance of (13.2) comes when $X$, $Y$ are spheres.
+\begin{corollary}
+  Theorem 13.2 defines a multiplication for $i,j\geqslant 1$
+  \[K_iA \times K_jA'\longrightarrow K_{i+j}A\otimes A'.\]
+\end{corollary}
+The restriction to $i, j \geqslant 1$ in (13.3) is unnecessary, the multiplication extending to lower $K$-groups by consideration of suspended rings, after (3.3). As a special case, let $A' = S\Z$, $j = 1$. Then $K_1 S\Z \cong K_0\Z$ (3.3) b) is infinite cyclic (Chapter 2). After (3.4), its generator is the class of the infinite matrix $(\delta_{r ,s+1}) \in GL_1 S\Z$, coming from $t \in \Z[t, t^{-1}]^* \subset K_1 \Z[t, t^{-1}]$.\index{Laurent polynomial ring} From bilinearity, the multiplication
+\[K_i A\times K_1S\Z\longrightarrow K_{i+1}SA\]
+is completely determined by the map
+\[.(\delta_{r,s+1})\colon K_i A\longrightarrow K_{i+1}SA.\]
+Since the two groups are known to be isomorphic (11.2), this homomorphism certainly has potential. After a detailed homotopy-theoretic investigation of the connecting homomorphism $\partial$ in the exact homotopy sequence of the fibration
+\[BGLA^+ \longrightarrow BGLCA^+ \longrightarrow BESA^+\]
+studied in Chapters 10, 11 above, namely ($i \geqslant 2$)
+\[\cdots \longrightarrow K_{i+1}SA \overset{\partial}{\longrightarrow} K_iA \longrightarrow K_iCA (= 0) \longrightarrow K_iSA \longrightarrow ]cdots ,\]
+Loday in [29] drew the following conclusion.
+\begin{prop}
+  The homomorphism
+  \[.(\delta_{r,s+1})\colon  K_i A\longrightarrow K_{i+1}SA.\]
+is inverse to the isomorphism
+\[\partial\colon K_{i+1}SA \longrightarrow K_1 A.\]
+\end{prop}
+Now there is a factorization
+\[
+ \begin{tikzcd}
+ K_iA \arrow{r}{(\id,t)} & K_iA\times K_1 \mathbb{Z}[t,t^{-1}] \arrow[r,"\cdot"] \arrow[d] & K_{i+1}A[t,t^{-1}] \arrow[d]& \\
+  &K_iA\times K_1 S\mathbb{Z} \arrow[r,"\cdot"] &K_{i+1}SA \arrow[r,"\partial"] &K_iA \\
+ \end{tikzcd}
+ \]
+So a corollary of (13.4) is that
+\[\partial \colon K_{i+1}A[t,t^{-1}] \longrightarrow K_iA\]
+is a split epimorphism. This result is strongly suggestive of (3.4), and in fact the proof of the
+fundamental theorem\index{fundamental theorem} is completed by Grayson (after Quillen) in [43].
+\begin{theorem}
+Theorem 3.4 holds for all integers $n$.
+\end{theorem}
+Again, for regular rings more is true. (Compare (3.6).) The proof is to be found in Quillen's article [41 pp.85--147].
+
+\begin{prop}
+  If $A$ is left regular,\index{regular ring} then for all integers $q$
+\[K_qA \longrightarrow K_qA[t]\]
+is on isomorphism.
+ \end{prop} 
+
+The next specialization of (13.2) requires that $A$ be {\em commutative}\index{commutative ring}, which hypothesis we shall assume for the remainder of the chapter. Composition of the multiplication of (13.2) with the homomorphism induced from the $A$-multiplication $A \otimes A \longrightarrow A$ yields a multiplication
+\[\bar{K}A^m(X) \times \bar{K}A^n(Y) \longrightarrow \bar{K}A^{m+n}(X \wedge Y).\]
+This may be developed in one (only) of two ways.
+
+First, when $X$, $Y$ are spheres it reduces to a {\em graded ring} structure
+\[K_iA \times K_jA \longrightarrow K_{i+j}A\]
+on $K_*A$ (with extension to lower groups again via suspension) bearing all the standard properties naturality, associativity and commutativity (often caLed anti-commutativity because, for $x\in K_iA$, $y \in K_jA$, $x \cdot y = (-1)^{ij} y\cdot x$ ).
+
+Secondly, if $X = Y$, then there is available the diagonal embedding $X \longrightarrow X \wedge X$, giving rise to graded ring structure on $\bar{K}A^*(X)$. Note that one cannot have this both ways, for if $X = Y = S^n$ ($n\geqslant 1$), then the diagonal map $S^n \longrightarrow S^{2n}$ must be nulhomotopic, so that the product evanesces.
+
+\section*{$\lambda$-OPERATIONS}\index{lambda-operation@$\lambda$-operation, $\lambda^k$}
+Just as with the transfer map discussed in the previous chapter, it is probably simpler to think of exterior power operations in terms of modules rather than matrices. So again (following [26]) we perform the construction on the representation ring $R_A(G)$\index{Grothendieck group,!-- of equivariant f.g. projective modules, $R_A(G)$}, and then pass to algebraic $K$-theory by watching its effect on the distinguished element $\langle GLA \rangle$ of $\varprojlim R_A(GL_n A)$. (Remember that $A$ is to be commutative.)
+
+In the usual manner, the $k$-th exterior power $\Lambda^k M$ ($k \geqslant 1$) of an $A$-module $M$ is defined as
+quotient of the $k$-th tensor power $M\otimes_A\cdots  \otimes_A M$ by the submodule generated by elements of the form $m_1 \otimes\cdots  \otimes m_k$ with some $m_i=m_j$ for $i \neq j$. The $A$-linear $G$-action on $M$ determines another on $M\otimes_A \cdots \otimes_A M$, and so restricts to one on $\Lambda^k M$. Asa result, its isomorphism class is a well-defined element, called $\lambda^k([M])$, in $R_A(G)$.
+
+Now the function $\lambda^k \colon R_A(G) \longrightarrow R_A(G)$ defined thereby is not in general a group homomorphism; indeed, one recalls the $A$-module isomorphism
+\[\Lambda^kP \cong \bigoplus_{i+j=k} \Lambda^i N\otimes_A \Lambda^jQ\]
+(leading to the corresponding expression in $R_A(1) = K_0A$) which comes from a short exact $A[G]$-module sequence $N \rightarrowtail P \twoheadrightarrow Q$. (One takes $\Lambda^0M$ to be the trivial $A[G]$-module $A$.) Tensoring over $A$ evidently defines a product structure on $R_A(G)$ (and may be employed as for the transfer in Chapter \ref{cha:12change_of_rings} in order to define that on $KA$), suggesting the formula 
+\[\lambda^k[P] = \sum_{i+j=k} \lambda^i[N] \cdot \lambda^j[Q].\]
+This is verified by checking the existence of an $A[G]$-module map
+\[\lambda^iN \otimes_A \lambda^jQ\longrightarrow M_i/M_{i+1},\]
+where $M_i \subset \Lambda^kP$ is the submodule generated by products $p_1\wedge\cdots \wedge p_k$ with at least $i$ terms in $N$. As this map is an $A$-module isomorphism, it is an $A[G]$-module isomorphism too; whence the
+formula follows from the short exact sequences
+\[M_{i+1}\rightarrowtail M_{i} \twoheadrightarrow M_{i}/M_{i+1},\]
+owing to $M_0 = \Lambda^kP$ and $M_k = \Lambda^kN$. Write
+\[\lambda_t(x) =1+\sum_{k\geqslant 1} \lambda^k(x) t^k , \]
+so as to define a function
+\[\lambda_t \colon R_A(G)\longrightarrow R_A(G)[[t]].\]
+The fact that, with ``addition'' in $R_A(G)[[t]]$ given by power series multiplication, $\lambda_t$ is a group homomorphism (and $\lambda_1 = \id$) makes $R_A(G)$ a (pre-) $\lambda$-ring; moreover, an appropriate multiplication in $R_A(G)[[t]]$ (sending, for instance, $(1+xt)$ and $(1+yt)$ to $(1+x\cdot yt)$) makes $\lambda_t$ a ring homomorphism. A further polynomial identity for $\lambda^h\circ \lambda^k$ in terms of $\lambda^{1}, \cdots, \lambda^{hk}$ reveals $R_A(G)$ to be a fully-fledged $\lambda$-ring (sometimes called a ``special'' $\lambda$-ring). In particular, this settles the {\em $\lambda$-ring} \index{lambda-ring@$\lambda$-ring} structure of $K_0A$.
+
+We now proceed similarly to Chapter \ref{cha:12change_of_rings}: attack $\langle GLA \rangle \in \varprojlim R_A(GL_nA)$ with $\lambda^k$ and pass, via $\kappa_1$, to maps in $BGLA^+$. Then the plus-construction leads to a well-defined element
+\[A^k \in \varprojlim [BGL_nA^+, BGLA^+],\]
+with $(A^k)_{n+1}$ restricting to $(A^k)_{n}$. Then, for compact $X$, the function 
+\[\lambda^k \colon \bar{K}A^0(X) \bar{K}A^0(X)\]
+is defined by sending a class in $[X, BGLA^+]$ represented by 
+\[i_n^+\circ f \colon X \longrightarrow BGL_nA^+ \hookrightarrow BGLA^+\]
+to that represented by
+\[(A^k)_n \circ  f : X \longrightarrow BGL_nA^+ \longrightarrow BGLA^+ .\]
+This is dearly immune to choice of $n$. Finally, from the fact that $R_A(GL_mA \times GL_nA)$ is also a $\lambda$-ring, one can verify that the functions $\lambda^k$ on $KA^0(X)$ make $KA^0(X)$ into a $\lambda$-ring too. An alternative argument here, reproduced in [18], relies on the observation that any function $R_A(GL_nA) \longrightarrow [BGL_nA, BGLA^+]$ factors uniquely through $\kappa_1$. In particular, all this describes $K_iA$ ($i \geqslant 0$) as {\em graded $\lambda$-ring}. Note that, for $i \geqslant 1$, $\lambda^k \colon K_iA \longrightarrow K_iA$ is actually a group homomorphism, for we have seen that all products in $K_iA$ vanish.
+
+There is a standard device for constructing $\lambda$-ring homomorphisms $\psi^k$($k \geqslant 1$) ({\em Adams' operations})\index{Adams' operations@Adams' operations, $\psi^k$} from the $\lambda$-ring structure. Let $\psi^1 = \id$, and thence, iteratively, for $x \in KA^0(X)$,
+\[\psi^k(x) = \sum_{i=1}^{k-1} (-1)^{i+1}\psi^{k-i}(x)\circ \lambda^i(x) + (-l)^{k+1}k\lambda^k(x).\]
+Thus on $K_iA$, $i\geqslant 1$, $\psi^k= (-l)^{k+1}k\lambda^k$, as all product terms vanish. Additionally, $\psi^h\circ \psi^k=\psi^{hk}$, while for $p$ prime, $x \in KA^0(X)$,
+\[\psi^{p^r}(x) \equiv x^{p^r} \pmod p.\]
+
+These features tend to make the Adams operations more congenial to handle than their $\lambda^k$ antecedents. Thus [26], for a ring $A$ of characteristic $p > 0$, $\psi^p$ behaves as the map on $KA^0(X)$ induced from the {\em Frobenius}\index{Frobenius homomorphism} ($p$-th power) homomorphism. As an application, suppose that $A$ is {\em perfect}\index{perfect ring}, that is, that $Frob\colon a \mapsto a^p$ is an automorphism. Then the vanishing of products in $K_iA$, $i \geqslant 1$, means that $\lambda^p$ is a homomorphism, and so that
+\[\lambda^p \circ p. = p. \circ \lambda^p = (\-1)^{p+1}\psi^p ,\]
+which is now an automorphism. Hence $\lambda^p$ and $p.$ are each automorphisms as well; in particular $K_iA$ is uniquely $p$-divisible.
+
+Recall from (9.10) that the finite field $\F_q$ has $K_{2j}\F_q = 0$ and $K_{2j-1}\F_q = \Z/(q^j-1)\Z$, $i \geqslant 1$.
+It can be shown that $\psi^k= k^j\cdot\id$ on $K_{2j-1}\F_q$. The proof (presented in [18], [26]) relies on the
+like behaviour of topological $\psi^k \colon BGL\mathbb{C} \longrightarrow BGL\mathbb{C}$, inasmuch as
+\[\psi^k = k^j \cdot \id \colon \pi_{2j}(BGL\mathbb{C}) \longrightarrow \pi_{2j}(BGL\mathbb{C}),\]
+the key fact (due to Quillen [33]) being that $BGL\F_q^+ $is the homotopy fibre of
+$\psi^q-\id \colon BGL\mathbb{C} \longrightarrow BGL\mathbb{C}$. Since this may be regarded equally as a deep result about either algebraic or topological $K$-theory, it seems an appropriate note on which to conclude.
+% chapter lambda_ring_structure (end)

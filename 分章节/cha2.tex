@@ -1,0 +1,164 @@
+%---------------第二章------------------
+\chapter{$K_1 A$ and $K^{-1} X$; $K_0A$ and $K^0 X$}
+\label{cha:2k_1a_and_k-1x_k0a_and_k0x}
+
+This chapter is by way of an historical note, in which we comment briefly on how algebraic 
+$K$-theory came by its name. That is, we shall see how algebraic $K_1,K_0$ resemble topological $K^{-1},K^0$. (Further details may generally be found in Bass' book[3].) When in the next chapter we come to define $K_q(q<0)$ and $K_2$, we shall then be in a good position to discuss those aspects of topological $K$-theory which the developing algebraic theory might fairly be expected to mimic.
+
+First though, we ought to attempt an answer to the (dis?)ingenuous reader who queries why there should be any relationship between the algebraic and topological theories. To do this, we recall two basic constructions. For $k$ the field $\R$ or $\mathbb{C}$ of real or complex numbers, the set $k(X)$ of continuous $k$-valued functions on a topological space $X$ acquires a commutative ring structure from that of $k$, namely straightforward addition and multiplication of values.
+
+Provided $X$ is reasonably well-behaved, it is possible to recapture $X$ from $k(X)$. Specifically, the {\em maximal spectrum} $\max(A)$ \index{maximal spectrum, $\max$} of a commutative ring $A$ comprises the set of maximal ideals of $A$ endowed with the Zariski topology: closed sets are the collections of all maximal ideals which contain a given ideal of $A$. Then the (non-functorial) construction $\max(\cdot)$ is (often) left-inverse to $k(\cdot)$, the point $x\in X$ reappearing in $\max(k(X))$ as the maximal ideal of functions which
+vanish at $x$.
+\begin{prop}
+If $X$ is a compact Hausdorff space, then $\max(k(X))$ is homeomorphic to $X$.
+\end{prop}
+
+Thus one can impose quite natural topological conditions without strain. The tension comes when we try to impose useful conditions (e.g.\  ascending chain conditions) on a ring $A$ but at the same time insist that its maximal spectrum be topologically respectable (e.g.\ Hausdorff). Thus $A$ Noetherian implies $\max(A)$ is a {\em Noetherian space}\index{Noetherian space} (which means that its open sets satisfy an ascending chain condition). On the other hand it is easy to see that all points of $\max(A)$ are closed sots. By considering a descending sequence of closed neighbourhoods of a point, one checks that if $X$ is Noetherian, then $k(X)$ must be the direct sum of as many copies of $k$ as $X$ has connected components. If $X$ is to be Noetherian, then this number must be finite. Now if $X$ is also Hausdorff (hence compact Hausdorff) we may apply Urysohn's Lemma to the effect that $k$-valued functionson $X$ separate points (or, which amounts to the same thing, (2.1)) to deduce that $X$ is a discrete space composed of only finitely many points. So when $X=\max(A)$ we conclude $\cdots$
+\begin{prop}
+A commutative Noetherian ring\index{Noetherian ring} has a Hausdorff maximal spectrum if and only if it is semi-local\index{semi-local ring} (= has a finite number of maximal ideals).
+\end{prop}
+
+Other ways of expressing this are that the ring is Artin\index{Artin ring}, or that its (Krull) dimension is $0$, {\em dimension}\index{dimension@dimension, $dim$,!Krull -- of a ring} being defined as the supremum of lengths of chains of prime ideals. Thus $dim(\Z)=1$ while for an indeterminate $t$, $dim(A[t])=1+dim(A)$ if $A$ is Noetherian. Moreover $dim$ is not increased by either localization or passage to quotient rings. This all suggests that algebraists feel most at home when discussing rings of low dimension ($=0$ or $1$, to be precise). Since few topologists suffer such inhibitions, the resemblance between the following two ``stability'' theorems is all the more striking. (The concept of dimension via chain length extends to $\max(A)$.
+Each chain of prime ideals in $A$ determines a chain of closed sets in $\max(A)$, of smaller length whenever distinct prime ideals are contained in precisely the same set of maximal ideals. Now $dim(\max(A))$ is the supremum of all prime-ideal-determined chain lengths, so we have $dim(\max(A))\leqslant dim(A)$. For example, if $A$ is Noetherian then $dim(\max(A[t]))=dim(A[t])$, and $dim(\max(\Z))=dim(\Z)$, but if $A$ is also a local ring with unique maximal ideal $m$, then
+$dim(A)>dim(\max(A))=0$ so long as $m^2\neq m$.)
+\begin{theorem}
+If $A$ is a commutative ring whose maximal spectrum is a Noetherian space of dimension $d$, then
+\[SL_nA/E_nA\longrightarrow SK_1A\]
+is surjective whenever $ n\geqslant d+1$ and bijective whenever $n\geqslant d+2$.
+\end{theorem}
+
+In order to make much of the topological counterpart to this theorem, we need to have a description of $K_k^{-1}$ of a (compact, Hausdorff) space $X$. Although the standard definition is as the Grothendieck group of $k$-vector bundles over the suspension space $SX$, more helpful here is the isomorphism
+\[K_k^{-1} X   \cong \varinjlim [X, GL_n k].\]
+Here the set $[X, GL_n k]$ of homotopy  classes of  maps from $X$ to $GL_n k$ inherits the group structure 
+of $GL_n k$ (i.e.\  matrix multiplication).  However, because of the homotopy
+\[f_t \colon   GL_n k \times  GL_n k\longrightarrow GL_{2n}k\]
+\[(\alpha,\beta)\mapsto (\alpha \oplus I_n)\gamma_t^{-1} (I_n\oplus \beta)\gamma_t,\]
+where
+\begin{equation*}
+  \gamma_t =\begin{pmatrix} (\cos t\pi/2)I_n & -(\sin t\pi/2)I_n \\ (\sin t\pi/2)I_n &  (\cos t\pi/2)I_n \end{pmatrix}
+\end{equation*}
+from $f_0\colon   (\alpha,\beta) \mapsto \alpha\oplus \beta$ to $f_1\colon   (\alpha,\beta)  \mapsto \alpha \beta \oplus I_n$, the group  operation could just as easily be regarded as given by direct sums. (This is all-too-reminiscent of Chapter 1.)
+\begin{theorem}
+If $X$ is a compact CW-complex of  dimension $d$, then
+ \[[X,GL_n k] \longrightarrow  K_k^{-1}X\]
+is surjective whenever  $n \geqslant d + 1 $ and bijective whenever $ n \geqslant d+ 2$.
+\end{theorem}
+(Here, the dimension\index{dimension@dimension, $dim$,!-- of a CW-complex} of  $X$ refers to the highest dimension of any of the (finitely many) cells which make up $X$.) Although I have de-mystified the comparison a great deal by not expressing (2.4) in its usual form in terms of vector bundles\index{vector bundle}, it still looks almost too good to be true. 
+Fortunately it is easy enough to make the similarity plausible, in the following manner.
+
+First of all, the determinant homomorphism  $GLk\longrightarrow k^*$ gives rise to a splitting \'{a} la (1.12).
+$$[X ,  GL_n k]  =  [ X,SL_n k]\oplus [X,k^*].$$
+The latter summand is well understood. For, homotopically speaking, $\R^*=S^0$ while $\mathbb{C}^*\cong S^1=B\Z$. Thus $[X,\R^*]$ may be identified with $H^0(X;\Z /2)$ and $[X,\mathbb{C}^*]$ with $H^1(X;\Z)$, so that in the limit we have
+\refstepcounter{theorem}
+\begin{equation}
+K_k^{-1}X=SK_k^{-1}X \oplus
+  \begin{cases}
+H^0(X,\Z/2) \quad k=\R, \\
+H^1(X,\Z) \quad k=\mathbb{C}.
+\end{cases}
+\end{equation}
+(Topologists will recognise the cohomology group as being the host for the first characteristic class (Stiefel-Whitney when $k=\R$, Chern when $k=\mathbb{C}$) of a virtual $k$-vector bundle over $SX$.)
+
+Next, what does $[X,SL_n k]$ look like? Well, it can first be thought of as $\pi_0(Map(X,SL_n k))$, the set of path-components of the space of continuous maps from $X$ to $SL_nk$. Each such map is in reality an $n\times n$-matrix of maps, and may thus equally be viewed as an element of $SL_n k(X)$ (whose inverse is the matrix of maps corresponding to the map to the inverse matrix in $SL_n k $). This simply exploits the correspondence between $Map(X,Hom(\N\times \N,k))$ and
+$Hom(\N\times \N,Map(X,k))$. Because $SL_nk(X)$ is a topological group there is further exploitation afoot: we have $\pi_0(SL_nk(X))=SL_nk(X)/(SL_nk(X))^0$, which represents a simplification in as much as one understands the path-component $(SL_nk(X))^0$ of the identity matrix. Here then is the heart of the matter.
+\begin{lemma}
+For $n\geqslant 2$, $E_nk(X)=(SL_nk(X))^0$.
+\end{lemma}
+\begin{proof}
+Certainly $I_n\in E_nk(X)\leqslant SL_nk(X)$. However generators of $E_nk(X)$ have the form $e_{ij}^f$ where $f\colon  X\longrightarrow k$. Any such is connected to $I_n=e_{ij}^0$ by means of the path which at time $t$ $(0\leqslant t\leqslant 1)$ gives the matrix $e_{ij}^{tf}$ (where $(tf)(x)=tf(x),x\in X$). This shows that $E_nk(X)\leqslant (SL_nk(X))^0$. For the converse, since $(SL_nk(X))^0$ is generated by any neighbourhood of the identity, it must be sufficient to establish that every (sufficiently small) neighbourhood of $I_n$ lies in $ E_nk(X)$. This formulation is especially amenable to non-standard analysis; so work in some enlargement $*SL_nk(X)$, where we verify that if $\alpha=(a_ij)$ is infinitesimally close ($\sim$)to $I_n$ (i.e.\ $a_{ij}\sim \delta_{ij}$), then $a\in *E_nk(X)$. We argue by induction. (Note that $a=a_{11}$ is invertible because $a_{11}\sim 1$.) The factorization
+\begin{equation*}
+  \alpha=\left(
+\begin{array}{cc|cc}
+ \multicolumn{2}{c|}{1} & \multicolumn{2}{c}{0}\\
+ \hline
+ \multicolumn{2}{c|}{a_{21}a^{-1}} &\multicolumn{2}{c}{\multirow{3}{*}{$I_{n-1}$}} \\ 
+\multicolumn{2}{c|}{\vdots} & \\
+\multicolumn{2}{c|}{a_{n1}a^{-1}} & \\
+\end{array}\right) \left(
+\begin{array}{c c|cc}
+a & 0& \multicolumn{2}{c}{0}\\
+0&a^{-1} &\multicolumn{2}{c}{0} \\
+\hline
+\multirow{2}{*}{$0$} &\multirow{2}{*}{$0$} &\multicolumn{2}{c}{\multirow{2}{*}{$I_{n-2}$}}\\
+ & & \\
+
+\end{array}\right) \left(
+\begin{array}{cc|cc}
+
+\multicolumn{2}{c|}{\multirow{2}{*}{$1$}} &\multicolumn{2}{c}{\multirow{2}{*}{$0$}} \\
+ &  \\
+\hline
+\multicolumn{2}{c|}{\multirow{2}{*}{$0$}}&\multicolumn{2}{c}{\multirow{2}{*}{$\beta$}} \\
+ & \\
+
+
+\end{array}\right) \left(
+\begin{array}{cc|c}
+
+\multicolumn{2}{c|}{\multirow{2}{*}{$1$}}& \multirow{2}{*}{$a^{-1}a_{12}\cdots a^{-1}a_{1n}$} \\
+& \\
+\hline
+\multicolumn{2}{c|}{\multirow{2}{*}{$0$}}&\multirow{2}{*}{$I_{n-1}$} \\
+ & \\
+\end{array}\right)
+\end{equation*} 
+yields four matrices $\sim I_n$ ($I_1\oplus \beta$ is, because the others clearly are). The first and last matrices are products of elementary matrices familiar from (1.1), while for the second we appeal to (1.9)b). For the third matrix we can use induction because $\beta \sim I_{n-1}$ and since in proving (1.10) we showed that $I_1\oplus E_{n-1} A \leqslant E_nA$. So the induction goes through.
+\end{proof}
+
+The $K_1$-groups developed in the previous chapter now unfold as a generalization of those
+already known to topologists (but, ironically, originally invented by algebraic geometers).
+
+\begin{theorem}
+ If $X$ is a compact Hausdorff space,then 
+$$SK_1k(X)\cong SK_k^{-1}X.$$
+ \end{theorem}
+
+We can also restate Theorem 2.4 in a form more obviously comparable with Theorem 2.3.
+
+\begin{corollary}
+If $X$ is a compact CW-complex of dimension $d$,then
+$$SL_nk(X)/E_nk(X)\longrightarrow SK_1k(X)$$
+ is surjective whenever $n\geqslant d+1$ and bijective whenever $n\geqslant d+2$.
+\end{corollary}
+
+Note that by (2.1) $k(X)$ has maximal spectrum $X$, which is a Noetherian space only in the
+case $d=0$. So although the topological stability theorem can be expressed algebraically, it does not yet have an algebraic proof. Nevertheless we have had plenty of encouragement to extend other topological $K$-theoretic properties to an algebraic environment.
+\section*{$K_0A$}
+We have seen how, although the group itself had already been an object of study for some
+time, it was only the recognition of its resemblance to a previously named topological object which led to its being called $K_1$. At the same time the same process was at work with $K_0$. Again, the relationship is quite striking, and well worth noting, not so much out of whimsy but because of the inspirational influence of the comparison on the whole subsequent development of the subject.
+
+
+Recall, in the same notation as previously, that $K_k^0X$ is defined to be the {\em Grothendieck group}\index{Grothendieck group,!-- of $k$-vector bundles, $K_k^0X$} generated by all isomorphism classes of (finite-dimensional) $k$-vector bundles $V$ over $X$ subject only to the relations $[V_1\oplus V_2]=[V_1]+[V_2]$. (Note that by choice of Hermitian form on $V$ one can split any short exact sequence $V_1 \rightarrowtail V \twoheadrightarrow V_2$,i.e.\  $[V]=[V_1 \oplus V_2]$.) Now $k$-vector bundles over $X$ and their morphisms form a small, abelian category $\mathbb{V}ect_X$; general arguments then dictate the existence of an embedding into some suitable category of modules. It is not difficult to visualize the image of such an embedding. In the simplest possible case, where $X$ is contractible, all $k$-vector bundles are (up to isomorphism) just products of $X$ with a finite dimensional $k$-vector space (= finitely generated, free $k$-module). In general, finite-dimensionality of vector bundles will correspond to finite generation of modules. Also, the space $X$, while no longer contractible, is at least composed of contractible patches. Over any patch, $U$ say, the bundle $V|_U$ looks like $U\times k^n$. Its set of sections $\Gamma(V|_U)$ is therefore an $n$-dimensional $k$-vector space. A partition-of-unity piecing argument extends any section over $U$ to a section over all of $X$, leading to a bundle epimorphism from the trivial bundle $X\times \Gamma(V)$ to $V$. As noted above, this splits, leaving the original bundle $V$ as a direct summand of a trivial bundle. This suggests that our modules also be summands of ``trivial'' (= free) ones, i.e.\  projective.\index{projective module} In fact, by observing that $\Gamma(V)$ is a module over the ring $k(X)$ and that
+$$\Gamma(V_1\oplus V_2)=\Gamma(V_1)\oplus \Gamma(V_2),$$
+we see that $\Gamma$ defines a functor from the category $\mathbb{V}ect_X$\index{Vect@$\mathbb{V}ect_X$} to the category of finitely generated projective $k(X)$-modules, and have reasonable grounds for hoping that $\Gamma$ is at least faithful.
+\begin{theorem}
+The functor $\Gamma$ defines a natural equivalence between the categories of $k$-vector bundles\index{vector bundle} over a compact CW-complex $X$ and finitely generated projective modules over $k(X)$.
+\end{theorem}
+
+An inverse to $\Gamma$ is easily described. The ring epimorphism $k(X)\twoheadrightarrow k$ defined by evaluation of a function at an arbitrary point $x$ of $X$ has kernel a maximal ideal $m_x$. One may check that evaluation at $x$ further induces a vector space isomorphism
+$$\Gamma(V)/m_x\Gamma(V)\longrightarrow V_x,$$
+where $V_x$ is the fibre of $V$ at $x$. Thus the homeomorphism $X\cong \max(k(X))$ extends, to recapture the vector bundle $V$ from the $k(X)$-module $\Gamma(V)$.
+
+All this makes the Grothendieck group\index{Grothendieck group,!-- of f.g. projective modules, $K_0A$} of finitely generated (f.g.) projective (left) $A$-modules the inevitable choice for $K_0A$. Again the group itself, in the guise of the {\em projective class group}\index{projective class group}
+$\widetilde{K}_0A=K_0A/\langle [A^1] \rangle$, effectively predates algebraic $K$-theory.
+\begin{corollary}
+$$K_0k(X)=K_k^0X,\widetilde{K}_k^0k(X)=\widetilde{K}_k^0(X).$$
+\end{corollary}
+
+For the record, $K_0A$ is the abelian group generated by isomorphism classes of f.g. projective $A$-modules, subject to all possible relations of the form
+
+$$[P_1\oplus P_2]=[P_1]+[P_2].$$
+Thus $P,P'$ define the same element of $K_0A$ if and only if for some finite sequence $Q_1,\cdots,Q_m$ of f.g. projectives there is an isomorphism
+\[(\bigoplus_{i=1}^m Q_i)\oplus P \cong (\bigoplus_{i=1}^m Q_i)\oplus P' .\]
+In this event $P,P'$ are said to be {\em stably isomorphic}\index{stably isomorphic! f.g. projective modules}, a property clearly equivalent to the existence of a non-negative integer $n$ for which $A^n\oplus P$ and $A^n\oplus P'$ are isomorphic.
+
+Next, a check of functoriality. If $f\colon  A_1\longrightarrow A_2$ is a ring homomorphism and $M$ is a module over $A$, then
+$$f_\#M=A_2\otimes_{A_1}M$$
+is a module over $A_2$ which is f.g., free or projective whenever $M$ is. The last observation is a consequence of
+$$f_\#(M\oplus M')=f_\#M\oplus f_\# M'.$$
+Moreover $f_\#$ preserves isomorphism classes of modules. Hence $f_\#$ preserves stable isomorphism classes, and thereby defines a group homomorphism
+$$f_*\colon  K_0A_1 \longrightarrow K_0A_2 .$$
+The remaining conditions for (covariant) functoriality are easily seen, namely
+$$(\id_A)_*=\id\colon  K_0A\longrightarrow K_0A,\quad (f\circ g)_*=f_*\circ g_*.$$
+
+Note that all f.g. projective modules are in fact free when the ring in question is a field, skew field, principal ideal domain\index{principal ideal domain}, or a local ring\index{local ring}. Thus in these cases $\widetilde{K}_0A=0$.

@@ -1,0 +1,117 @@
+%-----------第12章------------------
+\chapter{Change of rings} % (fold)
+\label{cha:12change_of_rings}
+This chapter considers two aspects of a ring homomorphism $f \colon   A \longrightarrow A_1$. In the first place we attempt a ring-theoretic description of the fibre of the map induced by $f$ on $BGLA^+$, so as to give the associated exact homotopy sequence further algebraic content. Secondly, when $f$ is (very) well-behaved,we describe a technique for having it determine a contravariant transfer\index{transfer} map from $K_iA_1$, to $K_iA$.
+
+The idea for constructing a ring-theoretic fibre for $f$\index{ring-theoretic fibre, $R_f$} (expounded in [40]) is inspired, unsurprisingly, by the topological procedure. This involves a canonical fibration ir from a homotopically trivial space (the path space, $PX_1$) to the target space $X_1$, and taking the pull-back
+\[
+\begin{tikzcd}
+F_g \arrow{r} \arrow{d} \arrow[dr, phantom, "\lrcorner"] & X \arrow{d}{g}\\
+PX_1 \arrow{r}{\pi} & X_1 \\
+\end{tikzcd}
+\]
+In the previous chapter we obtained a convincing model for a $K$-theoretically trivial ring, namely $CA_1$.\index{cone of a ring@cone of a ring, $CA$} Unfortunately this does not map usefully to $A_1$, so that we're forced to tensor with $S\Z$\index{suspension of a ring, $SA$} and take instead as our fibre the pull-back
+\[
+\begin{tikzcd}
+R_f \arrow{r} \arrow{d} \arrow[dr, phantom, "\lrcorner"] & SA \arrow{d}{Sf}\\
+CA_1 \arrow[two heads]{r} & SA_1 \\
+\end{tikzcd}
+\]
+This means that $GLR_f = GLCA_1 \times_{GLSA_1}GLSA$. However,we have already seen (e.g.\  (11.1),
+(11.4)) that it is more profitable to deal with $ESA$ rather than $GLSA$. So define the group $\bar{E}$ to be the fibre-product $ECA_1\times_{ESA_1}  ESA$ (= $GLCA_1 \times_{GLSA_1} ESA$). Evidently, $ER_f \leqslant \bar{E} \leqslant GLR_f$. So, as an immediate consequence of (1.11), we see that $ER_f = P\bar{E}$, the maximal perfect subgroup of $\bar{ E}$. Hence, from (7.8), we obtain the justification for studying the space $B\bar{E}^+$instead of $BGLR_f^+$.
+
+\begin{prop}
+ 	For $q \leqslant 2$, $K_qR_f = \pi_q(B\bar{E}^+)$.
+ \end{prop} 
+
+The part played by the space $B\bar{E}^+$ comes from the induced group extension 
+\[
+\begin{tikzcd}
+GLA_1 \arrow[r,tail] \arrow[d,"\id"]&\bar{E} \arrow{r} \arrow{d} \arrow[dr, phantom, "\lrcorner"] & ESA \arrow{d}{ESf}\\
+GLA_1 \arrow[r,tail]&ECA_1 \arrow[two heads]{r} & ESA_1 \\
+\end{tikzcd}
+\]
+Note that the action of $ESA$ on $H_*(GLA_1)$, being induced from the action of $ESA_1$, is trivial, after the proof of (11.5). Then (11.6) makes (6.4) b) applicable, leading to the flbrations
+\[
+\begin{tikzcd}
+BGLA_1^+ \arrow[r] \arrow[d,"\id"]&B\bar{E}^+ \arrow{r} \arrow{d} \arrow[dr, phantom, "\lrcorner"] & BESA^+ \arrow{d}{BESf^+}\\
+BGLA_1^+ \arrow[r]&BECA_1^+ \arrow{r} & BESA_1^+ \\
+\end{tikzcd}.
+\]
+Now $BECA_1^+$ is contractible because $BECA_1$ is acyclic (11.7). So $BECA_1^+\times_{BESA_1^+} BESA^+ $ serves as a model for the homotopy fibre, $F$, say, of $BESf^+ \colon   BESA^+ \longrightarrow BESA_1^+$. The resulting map of fibrations over $BESA^+$,
+\[
+\begin{tikzcd}
+BGLA_1^+ \arrow[r] \arrow[d,"\id"]&B\bar{E}^+ \arrow{r} \arrow{d} \arrow[dr, phantom, "\lrcorner"] & BESA^+ \arrow{d}{\id}\\
+BGLA_1^+ \arrow[r]&F \arrow{r} & BESA^+ \\
+\end{tikzcd},
+\]
+ensures $B\bar{E}^+$ has the right homotopy type for the fibre of $BESf^+$. Hence, in passing to the homotopy exact sequence for $BESf^+$, we obtain
+\[\cdots \longrightarrow \pi_{q+1}(BESA_1^+)\longrightarrow  \pi_q(B\bar{E}^+) \longrightarrow  \pi_q(BESA^+) \longrightarrow  \pi_q(BESA_1^+) \longrightarrow \cdots\]
+This simplifies as follows. First (12.1) and (7.8) give $K_qR_f$, $K_qSA$ and $K_qSA_1$ as substitutes for $\pi_q(B\bar{E}^+)$, $\pi_q(BESA^+)$ and $\pi_q(BESA_1^+)$ when $q \geqslant 2$. To handle cases with $q < 2$, we ought, in the light of (3.3), (11.2), to consider $R_{Sf}$, $R_{S^2f}$, etc.\  Since $S\Z$ is torsion-free, wc can safely tensor by $S\Z$ (over $\Z$), to obtain $S\Z \times mA_1$ as the kernel of the epimorpliism $S\Z \times R_f \twoheadrightarrow S^2A$. (Recall that $mA_1$ is the kernel of $CA_1\twoheadrightarrow SA_1$, and thence also of the induced epimorphism
+$R_f \twoheadrightarrow SA$.) Therefore $SR_f$ may be identified with the pulled-back ring $(S\Z \times CA_1) \times_{S^2A_1} S^2A$ (which also maps onto $S^2A$ with kernel $SmA_1$). Because of the standard $\Z$-algebra isomorphism
+$S\Z \otimes C\Z  \cong C\Z \otimes S\Z$, this last ring is naturally isomorphic to $(C\Z \otimes SA_1) \times_{S^2A_1} S^2A = R_{Sf}$.
+
+This calculation means we may suspend $f$ as many times as we like before resorting to the
+above homotopy exact sequence. The upshot may be summarized as follows.
+\begin{theorem}
+A ring homomorphism $f \colon   A \longrightarrow  A_1$ gives rise to a natural exact sequence
+\[\cdots \longrightarrow K_qA_1\longrightarrow K_qR_f\longrightarrow K_{q-1}A\overset{f^*}{\longrightarrow} K_{q-1}A_1\longrightarrow \cdots\]
+for all $q\in \Z$, where $R_f = CA_1 \times_{SA_1}SA$.
+\end{theorem}
+Needless to say, the low-dimensional cases of this result pre-date the invention of the higher $K$-theory. The necessary reconciliation is discussed in [40]. An example where $R_f$ has effectively been computed is $A_1$ as field of fractions of a {\em Dedekind domain}\index{Dedekind domain} $A$. (Recall that this means that every ideal of $A$ is equal to a finite product of prime ideals of $A$.) Then in [41 pp.85--147], Quillen shows (by very different arguments) that in (12.2) the term $K_qR_f$ may be replaced by
+$\sqcup_{m} K_{q-1}(A/m)$, where $m$ ranges over the maximal ideals of $A$. This case is further dealt with by Gersten in [41 pp.211--243], Keating [23] and Sherman [34], who obtain splittings and/or short exact sequences within the long exact sequence under various hypotheses.
+\section*{THE TRANSFER MAP}
+Under favourable circumstances a ring homomorphism $f\colon   A \longrightarrow A_1$ may give rise to a homomorphism of $K$-groups ``going the other way'', the {\em transfer map}\index{transfer} $f^t \colon   K_iA_1 \longrightarrow  K_iA$. The inspiration for this is, in algeora, the co-restriction/induction map to the representation ring of a group from
+that of a subgroup of finite index, and, topologically, transfer maps between (generalized) cohomology groups of a space and its finite covering. Both these examples admit generalizations as does the one we consider below, which is evidently analogous to them. (For one such generalization of our case, see Quillen's article [41 pp.85--147].)
+
+We shall consider the situation where, as an $A$-module (via $f$), $A_1$ is finitely generated and projective.\index{projective module}
+For the purposes of this discussion, as for others involving the structure of algebraic
+$K$-theory, it is convenient to pass to an equivariant form of the category of f.g. projective $A$-modules considered in Chapter 2. A group $G$ is given and all modules are assumed to be
+endowed with an $A$-linear $G$-action (making them modules over the group ring $A[G]$)\index{group ring@group ring, $A[G]$}. Morphisms are required to be both $A$-linear and $G$-invariant. The short exact sequence Grothendieck group (formed by equating the isomorphism class $[P]$ of $P$ with $[N] + [Q]$ whenever there is a short exact sequence $N \rightarrowtail P \twoheadrightarrow Q$) will be denoted by $R_A(G)$.\index{Grothendieck group,!-- of equivariant f.g. projective modules, $R_A(G)$} (I abandoned the search for a notation which mutually specializes both to the ring $R_k(G)$ of $k$-representations when $A$ is a field $k$ and also to $K_0A$ when $G$ is trivial.)
+
+Whatever relevance $R_A(G)$ may have is due to the existence of a function $\kappa  \colon   R_A(G)\longrightarrow KA^0(BG)$, which I shall now describe. Note that the target group may also be written as $K_0A \times [BG, BGLA^+]$, where the latter factor equates to $\bar{K}A^0(BG)$. Thus $\kappa  = (\kappa_0, \kappa_1 )$. The image of $\kappa_0$ in $K_0A$ is simply obtained by group restriction, since $R_A(1) = K_0A$. To map into $[BG, BGLA^+]$, we begin by adding a $G$-trivial f.g. projective $A$-module $Q$ to a given $A[G]$-module $P$ so as to make $P \oplus Q$ free (over $A$). Now an $A$-linear $G$-action on a f.g. free $A$-module corresponds precisely to a representation $\rho \colon   G\longrightarrow GLA$. The effect of different choices of basis for $P \oplus Q$, and then of representatives for the stable isomorphism\index{stably isomorphic! f.g. projective modules} classes of $P$, $Q$, may be to alter the representation by conjugation (by a not necessarily square matrix, $\alpha$ say, which can be replaced by a square one in $GLA$ by the device of considering $\alpha \oplus \alpha
+^{-1}$ --- cf. (1.9)). (Details are spelt out in Milnor's book [31 p.26].) Thus the homotopy class of $B\rho \colon   BG\longrightarrow BGLA$ is well-defined up to commutators of loops (corresponding to commutators in $GLA = \pi_1(BGLA)$), and these are eliminated, as ever, by the passage to $BGLA^+$. So here $\kappa_1([P]) = q_{BGLA}\circ B_\rho$.
+\begin{lemma}
+  $\kappa \colon   R_A(G) \longrightarrow KA^0(BG)$ is a group homomorphism, natural in $A, G$.
+\end{lemma}
+\begin{proof}
+The group restriction map is of course well-behaved. We check that $q_{BGLA}\circ B_\rho$ sends a short exact sequence of $A[G]$-modules to a sum of elements in the abelian group $[BG, BGLA^+]$ (where addition is, after Chapter 1, induced from direct sum of matrices). Again, by adding on complementary $G$-trivial $A$-modules as necessary, we reduce to exact sequences $A^n \rightarrowtail A^2n\twoheadrightarrow A^n$, for which the representation $\rho$ corresponds to a homomorphism
+\[G\longrightarrow \begin{pmatrix}
+  GL_nA & M_nA \\0& GL_nA
+\end{pmatrix} \subset GL_{2n}A.\]
+On the other hand, addition in $[BG, BGLA^+]$ corresponds to the direct sum
+\[G\longrightarrow \begin{pmatrix}
+  GL_nA & 0 \\0& GL_nA
+\end{pmatrix} \subset GL_{2n}A.\]
+So the result hinges on the relationship between $BGLUT^+$ and $BGL(A\oplus A)^+$. In (5.12) (3) it was shown that the canonical maps between them are homotopy equivalences, whence the two
+factorizations
+\[BG\longrightarrow BGLUT^+ \longrightarrow BGLA^+\]
+and 
+\[BG \longrightarrow  BGL(A\oplus A)^+ \longrightarrow BGLA^+\]
+are in the same homotopy class after all.
+\end{proof}
+
+Let us now return to the transfer, and the map $f\colon   A \longrightarrow A_1$. First, the act of regarding f.g. projective $A_1$-modules as f.g. projective $A$-modules determines the transfer homomorphism $f^t \colon   R_{A_1} (G) \longrightarrow R_A(G)$ for any group $G$. We now choose $G = GL_nA$ for each $n$, and note the existence of a distinguished element, denoted $[GL:A^n]$, in $R_A(GL_nA)$, corresponding to the standard $GL_nA$-action on $A^n$. Because $[GL:A^{n+1} ]\in R_A(GL_{n+1} A)$ restricts to $[GL:A^n] + [A] \in R_A(GL_nA)$ (trivial action on $[A]$), it is preferable to concentrate on the difference element $[GL:A^n ] - n[A] \in R_A(GL_nA)$. The fact that these difference elements all restrict to one another means they define an element $\langle GLA\rangle$ in $\varinjlim R_A(GL_nA)$.
+
+It follows that
+\[\kappa_1\circ f^t(\langle GLA_1\rangle) \in \varprojlim [BGL_nA_1,BGLA^+], \]
+so that application of the plus-construction yields an element 
+\[t(f)\in\varprojlim[BGL_nA_1^+,BGLA^+] .\]
+Since $BGL_nA_1^+ \subset BGL_{n+1} A_1^+$ (after (9.6)), the homotopy extension property for CW-pairs allows choice of maps $t(f)_n \colon  BGL_nA_1^+ \longrightarrow BGLA^+$ representing $t(f)$ which restrict to one another, so defining (non-uniquely) a map $BGLA_1^+ \longrightarrow BGLA^+$. Now a map $g$ from a compact CW-complex $X$ to $BGLA_1^+ = \varprojlim BGL_nA_1^+$ must factor through some $BGL_nA_1^+$; by virtue of the above constraints on $t(f)_n$, choice of $n$ is immaterial, and the composite homotopy class $t(f) \circ g$ is well-defined. So composition with $t(f)$ defines the required transfer homomorphism
+\[f^t\colon \bar{K}A_1^0 \longrightarrow \bar{K}A^0(X),\]
+and in particular (when $X$ is a sphere)
+\[f^t\colon K_iA_1 \longrightarrow K_iA .\]
+Moreover, $1 \otimes f\colon S\Z\otimes A\longrightarrow S\Z\otimes A_1$ makes the latter ring f.g. projective over the former, permitting repetition of the above. On observing from (7.2) that composition with $t(S^mf)$ leads to a well-defined map
+\[[BGL_nS^mA_1^+,BGLS^mA^+]\longrightarrow [(BGL_nS^mA_1)_{m+1}^+,BGLS^mA_{m+1}^+], \]
+we may conclude $\cdots $
+\begin{theorem}
+Suppose $f\colon  A \longrightarrow A_1$ is a ring homomorphism which makes $A_1$ a finitely generated projective $A$-module. Then, for any compact CW-complex $X$ and integer $n$, $f$ determines a natural, contravariant transfer homomorphism of groups
+\[f^t\colon \bar{K}A_1^n(X)\longrightarrow \bar{K}A^n(X),\]
+as well as
+\[f^t\colon K_nA_1\longrightarrow K_nA.\]
+\end{theorem}
+
+An especially simple example concerns a finite field extension $f\colon  k\longrightarrow k_1$, where the composite 
+\[f_*\circ f^t \colon K_ik \longrightarrow K_ik_1\]
+is just multiplication by the degree of the extension. (See Quillen's article, loc. cit.) This is an immediate consequence of the projection, or reciprocity formula, which is in turn an exercise once the multiplicative structure on $K$-groups has been defined --- our next task.
+% chapter change_of_rings (end)

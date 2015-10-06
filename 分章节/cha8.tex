@@ -1,0 +1,99 @@
+%----------------第八章-----------------
+\chapter{The plus-construction on a classifying space} % (fold)
+\label{cha:8the_plus_construction_on_a_classifying_space}
+We have nearly arrived at our study of the homotopy groups of $BGLA^+$. First though, we pause for a more general study of the classifying space $BG$ and the homotopy groups of $BG^+$ when $G$ is assumed only to be a discrete group. This requires the results of the previous chapter when $X = BG = K(G, 1)$ and thus $H_*(X) = H_*(G)$.
+\begin{theorem}
+\begin{equation*}
+\pi_q(BG^+)=
+  \begin{cases}
+G/PG \quad q=1, \\
+H_q((BG)_q) \quad q\geqslant 2.
+\end{cases}
+\end{equation*}
+\end{theorem}
+\begin{proof}
+Although the theorem itself follows immediately from (7.8), we pursue another proof which is more revealing about the space $X_3$. The method involves calculation of the homotopy groups of $ABG$ from (7.1) and then those of $ BG^+$ from (7.7). First observe that $X_2 = BPG$ and the homotopy exact sequence of the fibration $X_3 \longrightarrow BPG \longrightarrow K(H_2(X_2),2)$ shows that $\pi_q(X_3) = 0$ whenever $q \geqslant 2$ (that is, $X_3 = K(\pi_1 (X3), 1)$), while $H_2(X_2) = \ker (\pi_1(X_3)\longrightarrow PG)$. We can argue by induction to deduce generally that for $n \geqslant 3$
+\begin{equation*}
+\pi_q(X_n)=
+  \begin{cases}
+\pi_1(X_3) \quad q=1, \\
+H_{q+1}(X_{q+1}) \quad 2\leqslant q\leqslant n-2,\\
+0 \quad q\geqslant n-1
+\end{cases}
+\end{equation*}
+from the exact sequence of the fibration $X_{n+1}\longrightarrow X_n \longrightarrow K(H_n(X_n), n)$, namely ($\delta$ the Kronecker delta)
+\[\pi_{q+1}(X_{n})   \longrightarrow   \delta_{q+1,n}H_n(X_n)   \longrightarrow  \pi_{q}(X_{n+1})  \longrightarrow   \pi_{q}(X_{n})  \longrightarrow  \delta_{q,n}H_n(X_n)  \]
+Consequently,
+\begin{equation*}
+\pi_q(ABG)=
+  \begin{cases}
+\pi_1(X_3) \quad q=1, \\
+H_{q+1}(X_{q+1}) \quad q\geqslant 2.
+\end{cases}
+\end{equation*}
+Turning now to $BG^+$, we of course know that $\pi_1(BG^+) = G/PG$. The homotopy exact sequence for $ABG \longrightarrow BG \longrightarrow BG^+$ forces $\pi_q(BG^+)=\pi_{q-1}(ABG)$, $q \geqslant 3$, and for $q= 2$ reduces to
+\[
+\begin{tikzcd}
+  \pi_2(BG) \arrow[r] \arrow[equal]{d} &  \pi_2(BG^+) \arrow[r] &   \pi_1(ABG)  \arrow[r]\arrow[equal]{d}  & \pi_1(BG)\arrow[r,two heads] \arrow[equal]{d} &  \pi_1(BG^+) \arrow[equal]{d} \\
+  0 & & \pi_1(X_3) & G & G/PG \\
+\end{tikzcd}
+\]
+However, we have already seen that $H_2(X_2) = \ker (\pi_1(X_3) \longrightarrow G)$.
+
+We now consider in more detail the group extension
+\[H_2(PG)\rightarrowtail \pi_1(X_3) \twoheadrightarrow PG\]
+arising from the fibration $X_3 = B\pi_1(X_3) \longrightarrow X_2 = BPG \longrightarrow  K(H_2(PG), 2)$.
+\end{proof}
+\begin{lemma}
+  An extension $H'\rightarrowtail H \twoheadrightarrow H''$ is central if and only if the fibration $BH' \rightarrow  BH\rightarrow  BH''$, is principal (i.e.\  induced from $PK(H', 2)\longrightarrow K(H', 2)$ by some map $BH''\longrightarrow K(H', 2)$)
+\end{lemma}
+\begin{proof}
+Since $H = \pi_1 (BH)$ acts on $\pi_*(BH') = \pi_1 (BH') = H'$ by inner automorphisms, the
+extension is central if and only if the projection $BH \longrightarrow BH''$ is a simple map. if this projection is induced from the simple map $PK(H', 2) \longrightarrow K(H', 2)$ then it too is simple. Conversely, if $BH \longrightarrow BH''$ is known to be simple, then it has a Moore-Postnikov factorization
+\[
+\begin{tikzcd}
+  & BH' \arrow[d] & \\
+  & E \arrow[d] \arrow[r] \arrow[dr, phantom, "\lrcorner"] &PK(H',2) \arrow[d] \\
+ BH \arrow[ru,"f"] \arrow[r] &BH'' \arrow[r] & K(H',2)\\  
+\end{tikzcd}
+\]
+ in which $f$ induces an isomorphism of fundamental groups. As all other homotopy groups of $BH$ and $E$ are trivial, this is enough to guarantee that $f$ is a homotopy equivalence (over $BH''$).
+\end{proof}
+
+One consequence of (8.2) should be familiar.
+\begin{corollary}
+  Central extensions of $H''$ with kernel $H'$ are classified by $[BH'', K(H',2)]\cong H^2(H''; H')$.
+\end{corollary}\index{central extension!classification theorem}
+More original (in fact it generalizes [14]) is the following application of (6.4) b). (Note that $H'$ abelian implies $BH' = {BH'}^+$ nilpotent.)
+\begin{corollary}
+  If $H'\rightarrowtail H \twoheadrightarrow H''$ is a central extension, then $BH'$ is the fibre of $BH^+ \longrightarrow {BH''}^+$.
+\end{corollary}
+Now recall from the beginning of Chapter 4 that $\pi_1(X_3) = \pi_1 (AX)$ is {\em superperfect}\index{superperfect group}, which is to say, $H_1 (\pi_1 (X_3)) = H_2(\pi_1 (X_3)) = 0$. (The converse to this remark is now apparent: given a superperfect group $S$, the acyclic space construction on $BS$ yields in turn $BS = (BS)_2$ and then $BS = (BS)_3$, so that $\pi_1 (ABS) = \pi_1((BS)_3) = S$ after all.) So any perfect group $P$ admits a central extension in which it is the image of a superperfect group $SP = \pi_1((BP)_3)$. As before, it follows that $BSP = (BP)_3$. Next, let $H'\rightarrowtail H \twoheadrightarrow P$ be any other central extension of $P$. After (8.2)
+we have
+\[
+\begin{tikzcd}
+  & BH \arrow[d] \arrow[r] \arrow[dr, phantom, "\lrcorner"] &PK(H',2) \arrow[d] \\
+ BSP \arrow[ru,dashrightarrow] \arrow[r] &BP \arrow[r] & K(H',2)\\  
+\end{tikzcd}
+\]
+Just as for (7.3) we obtain an exact sequence
+\[[BSP, K(H',1)] )\rightarrowtail [BSP, BH] \longrightarrow [BSP, BP] \longrightarrow [BSP, K(H',2)]\]
+whose extreme terms are $H^i(SP; H')$, $i = 1, 2$, both of which vanish by the universal coefficient theorem [38 (5.5.3)]. Then there is a unique homotopy class of liftings $BSP \longrightarrow BH$ and thus (since $\pi_1 (Bf) = f\colon  SP = \pi_1 (BSP) \longrightarrow H$) a unique homomorphism $f\colon   SP \longrightarrow H$ over $P$. Moreover, for this to occur it is necessary that $P$ be perfect, because for any group $J$, $[BJ, BH] \longrightarrow [BJ, BP]$ being a monomorphism when $H'=\Z$ implies that $J$ (and hence its image $P$) is perfect.
+\begin{prop}
+  The category of epimorphisms to a fixed group $P$ which have central kernel (whose morphisms are homomorphisms over $P$) has an initial object, the universal central extension of $P$\index{universal central extension, u.c.e.}, if and only if $P$ is perfect, in which case the u.c.e. of $P$ is
+\[H_2(P) \rightarrowtail SP = \pi_1((BP)_3)\twoheadrightarrow P .\]
+\end{prop}
+A more group-theoretic discussion of (8.5) may be found in [31], where due historical
+acknowledgement is given. Of course, in its role as the {\em Schur multiplicator/multiplier}\index{Schur multiplicator/multiplier} of $P$, the group $H_2(P)$ has a history of its own (born 1904 --- see [24]). For a ring $A$, the {\em u.c.e.} of the perfect group $EA$ is determined in the next chapter.
+
+To return to the original group $G$, there $P = PG$ and $BSP = (BP)_3 = (BG)_3$.
+\begin{corollary}
+ \[  \pi_1(BG^+)= G/PG ,\]
+\[ \pi_2(BG^+)=H_2(PG),\] 
+\[ \pi_3(BG^+)=H_3(SPG),\]
+where
+\[ H_2(PG) \rightarrowtail  SPG\twoheadrightarrow PG\]
+is the {\em u.c.e.} of $PG$.
+\end{corollary}
+
+% chapter the_plus_construction_on_a_classifying_space (end)

@@ -1,0 +1,104 @@
+%---------------第十章---------------
+\chapter{Delooping of the plus construction} % (fold)
+\label{cha:10delooping_of_the_plus_construction}
+The purpose of this chapter is to instal the machinery which shows that $BGL(A)^+$ is an infinite loop space. Thus the space $T_1$ in this chapter becomes $BGL(A)$ in the next.
+
+Note from (7.2) that ant map $X\longrightarrow U$ gives rise, for $1\leqslant n \leqslant \infty$, to a map $p_{n+1}\colon  AX\longrightarrow U_{n+1}$ and thus a fibre sequence $F_{p_{n+1}}\longrightarrow AX \longrightarrow U_{n+1}$, although in general the homotopy fibre $F_{p_{n+1}}$is difficult to identify. If however one of the conditions of (6.4) is satisfied, then we deduce from the fibre sequence $F_{p_{n+1}}^+\longrightarrow * \longrightarrow U_{n+1}^+$ that $F_{p_{n+1}}^+$ is $(n-1)$-connected, so that $\widetilde{H}_i(F_{p_{n+1}})=\widetilde{H}_i(F_{p_{n+1}}^+)=0$ for $i< n$, making $F_{p_{n+1}}$ the $n$-th stage of some acyclic tower (cf.(7.1)). This is the case we now examine.
+\begin{lemma}
+  Suppose that $T,O,U$ are spaces, $O$ acyclic, such that, for some $n\geqslant 1$, $T_n\longrightarrow O {\overset{p_{n+1}}\longrightarrow} U_{n+1}$ is a fibre sequence. Then the three conditions
+  
+  (i) $p_{n+1}$ is quasi-nilpotent (and $T_n^+$ is nilpotent if $n=1$),
+  
+  (ii) $q_n\colon  T_n \longrightarrow \Omega U_{n+1}^+$ (defined below) is acyclic,
+  
+  (iii) $p_{\infty}\colon   O \longrightarrow AU$ is acyclic \\
+are equivalent and imply that $T_{n+1} \longrightarrow O {\overset{p_{n+2}}\longrightarrow} U_{n+2}$ is also a fibre sequence.
+\end{lemma}
+\begin{proof}
+  Effectively, we show that there is a commuting diagram 
+\[\begin{tikzcd}[column sep=tiny]
+  & & & K(H_{n+1}(U_{n+1}),n)\arrow{dddd} & \\
+  &T_n \arrow[rru] \arrow{ddr} \arrow[rrrr,"q_n",near end,crossing over] & & & &\Omega U_{n+1}^+ \arrow[ull,"h_n"'] \arrow{ddl}\\
+T_{n+1} \arrow{ru} \arrow{rrd} \arrow[rrrrrr,"q_{n+1}",near end,crossing over]& & & & & & \Omega U_{n+2}^+ \arrow{ul} \arrow{lld} \\
+ & & 0 \arrow[rr,"p_{\infty}",crossing over] \arrow[rd,"p_{n+2}"] \arrow[rdd,"p_{n+1}"'] & & AU \arrow{ld} \arrow{ldd}\\
+ & & & U_{n+2} \arrow{d} \\
+ & & & U_{n+1} \\
+\end{tikzcd}\]
+in which all collineations are fibre sequences, all horizontal maps acyclic, $q_n$ is the map of homotopy fibres induced from $O \longrightarrow AU $ over $ U_{n+1}$. (Make what you will of the fact that this is Desargues' configuration with the common fibre (4.2) of $q_n, q_{n+1},p_\infty$ --- identified by (10.2) as
+$AT$ --- omitted/at infinity.)
+
+For the proof in earnest, begin by observing that the equivalence of (ii), (iii) follows from (4.2). To see that each is a consequence of (i), observe that is a homology equivalence because $\widetilde{H}_*(O) = \widetilde{H}_*(AU) = 0$. So, for$ n \geqslant 2$,(iii) comes via (4.13) b), $\Omega U_{n+1}^+$ being $(n-l)$-connected (7.8) For $n = 1$ we apply (4.4) ($AU\longrightarrow U_2$ being quasi-nilpotent after (7.5)) to deduce that $q_1$ and hence $q_1^+ \colon  T_1^+\longrightarrow \Omega U_2^+$, is a homology equivalence. Since both $T_1^+$ and $\Omega U_2^+$ are nilpotent (the latter, e.g.\  by (7.5), (4.8)), this forces $q_1^+ $to be a homotopy equivalence (4.18) and $q_1$ itself to be acyclic.
+
+Conversely, because the action of $\pi_1(U_{n+1})$ on $H_*(T_n)$ corresponds through $H_*(q_n)$ to that on $H_*(\Omega U_{n+1}^+)$, (ii) implies (i). (When $n = 1$, (ii) forces (after (5.1)) to be homotopy equivalent to the nilpotent space $\Omega U_2^+$.)
+
+We use condition (ii) for the remaining argument. From the fibre sequence 
+$$\Omega U_{n+2}^+\longrightarrow \Omega U_{n+1}^+ \overset{h_n}{\longrightarrow} K(H_{n+1}(U_{n+1}),n) \longrightarrow U_{n+2}^+$$
+(an application of (6.4)), $\pi_1(h_n)$ is an isomorphism whenever $i \leqslant n$, so that, after Hurewicz,
+$H_i(h_n)$ is too. For $n = 1$, $\pi_1 (\Omega U_{2}^+) = \pi_2(U_{2}^+) = H_2(U_2)$ (7.8) is abelian, so that by (5.1) acyclic $q_1$ is just $q_T \colon   T \longrightarrow T^+$ (up to homotopy under $T$), and so $T \overset{h_1\circ q_1}{\longrightarrow} K(H_2(U_2), 1)$ is just $T \longrightarrow K(\pi_1(T)/P\pi_1(T), 1)$, with fibre $T_2$. For $n \geqslant 2$, $T_n\overset{h_n\circ q_n}{\longrightarrow} K(H_{n+1 }(U_{n+1} ),n)$ is an isomorphism
+on $n$-th homology groups and thus (up to homotopy under $T_n$) is the map $T_n \longrightarrow K(H_n(T_n), n)$, with fibre $T_{n+1}$ (cf. (7.1)). In either event,
+\[T_{n+1} \simeq \mbox{fibre} [T_n \overset{Fp_{n+2}}{\longrightarrow} K(H_{n+1}(U_{n+1}),n)]= F_{Fp_{n+2}} \simeq F_{p_{n+2}}.\]
+\end{proof}
+The fact that condition (iii) of (10.1) is independent of $n$ makes iteration possible. By applying either (6.4) b) to (i) or (5.1) to (ii) we have
+\begin{theorem}
+If $T$ is the homotopy fibre of quasi-nilpotent $p_2\colon   O\longrightarrow U_2$ with $O$ acyclic, $T^+$ nilpotent, then for all $n \geqslant 1$, $q_n^+\colon  T_n^+\longrightarrow \Omega U_{n+1}^+$ a homotopy equivalence.
+\end{theorem}
+
+We leave it to the reader as an exercise (using (6.4) a), (4.10)) to check that$\cdots $
+
+\begin{prop}
+  $T^+$ is nilpotent\index{nilpotent space} if and only if (for $\pi= \pi_1(T)$) $\pi/P\pi$ is nilpotent and the fibration $T_2 \longrightarrow  T \longrightarrow  K(\pi/P\pi, 1)$ is quasi-nilpotent.
+ \end{prop} 
+
+The most exciting case of (10.2) occurs when $T, U$ are closely related to one another.
+\begin{corollary}
+  Suppose $C$ is a category and $S \colon  C \longrightarrow C$, $T \colon   C\longrightarrow \mathbb{T}op$\index{Top@$\mathbb{T}op$} (our topological
+category) are such that, for any object $A$ in $C$, there is an acyclic space $O_A$ and quasi-nilpotent fibration $T(A)\longrightarrow O_A \longrightarrow (T(SA))_2$ with $T(A)^+$ nilpotent. Then there is (functorially) an $\Omega$-spectrum\index{spectrum (=$\Omega$-spectrum)}
+\[\cdots, \Omega^2 T(A)^+, \Omega T(A)^+, T(A)^+,T(SA)_2^+ ,T(S^2A)_3^+ , \cdots\]
+In particular, $T(A)^+$ is an infinite loop space.
+\end{corollary}
+The content of this result is that, given a morphism $f\colon   A \longrightarrow A'$ in $C$, then for any $n \geqslant 1$ there is a diagram
+\[
+\begin{tikzcd}
+ (TS^{n-1}A)_n^+ \arrow[r,"q_n^+"] \arrow[d]& \Omega (TS^nA)_{n+1}^+ \arrow[d]   \\
+(TS^{n-1}A')_n^+  \arrow[r,"q_n^+"] & \Omega (TS^nA')_{n+1}^+    \\
+\end{tikzcd}
+\]
+commuting (after (5.2), (7.1)) up to homotopy under $(TS^{n-1} A)_n$, in which each $q_n^+$ is a homotopy equivalence. So the $n$-th term, $(TS^nA)_{n+1}^+$, is the $n$-th delooping of the space $TA^+$. We would thus be justified in writing $TA^+$ as $\Omega^{\infty}(ATS^{\infty}A^+)$, just as homotopy-theorists. write $\Omega^{\infty} S^{\infty}$ although the infinite-dimensional sphere $S^{\infty}$, like $ATS^{\infty}A^+$, is contractible. {\em Infinite loop spaces}\index{infinite loop space} are investigated in J.F. Adams' Annals of Math. Study (no. 90) of that name, whose first chapter relates them to $\Omega$-spectra and cohomologies. For the present we merely remark that an $\Omega$-spectrum $\mathbf{E} = \{E_{(r)}\}_{r\in \Z}$ (i.e.\ $E_{(r)}\simeq \Omega E_{(r+1)}, r \geqslant 0$) gives rise to a {\em generalized cohomology theory}\index{generalized cohomology theory} $h^*(\quad ;\mathbf{E})$ by means of the assignments ($X$ compact)
+\[X\mapsto h^n(X;\mathbf{E})=[X\sqcup pt,E_{(n)}].\]
+It is said to be {\em $p$-connected}\index{spectrum (=$Omega$-spectrum)!$p$-connected --} if $h^{-n}(pt;\mathbf{E})=0$ whenever $n \leqslant p$, or equally, if $E_{(r)}$ is $(r+p)$-connected whenever $r+p \geqslant 0$. Thus our spectrum is $O$-connected (7.8). It can be amended to a $(-m)$-connected spectrum ($0 \leqslant m \leqslant \infty)$ with unchanged positive homotopy groups
+\[h^{-n}(pt;\mathbf{E}) = [S^0, E_{(-n)}] = \pi_n(E_{(0)}), n>0,\]
+where
+\refstepcounter{theorem}
+\begin{equation}
+E_{(r)}=
+  \begin{cases}
+TS^rA^+_{r-m+1} \quad r\geqslant m, \\
+TS^rA^+ \times \pi_1(TS^{r+1}A^+) \quad 0\leqslant r<m,\\
+\Omega^{-r}(TA^+ \times\pi_1(TSA^+))  \quad r<0 \\
+\end{cases}
+\end{equation}
+However, it has to be said that a clear advantage of at least $(-1)$-connected (= connective)\index{spectrum (=$Omega$-spectrum)!connective --} spectra, such as in (10.4), is the attractive uniqueness property they possess [13], [30]. In the present circumstances it is handy to have a comparison between the $0$-connected and $(-1)$-connected spectra (written $\bar{T}A$ and $TA$ respectively). To obtain this, recall the fibre sequence
+\[TS^rA^+_{r+1} \longrightarrow TS^rA_r^+\longrightarrow K(H_r(TS^rA_r),r)\]
+used in (7.8). In the usual way the sequence extends to the left by successive ``looping'' of each space in turn. When (10.4) applies, it also extends to the right by ``delooping'' (since too $K(H,r) = \Omega K(H,r+1)$). Now
+\[H_r(TS^rA_r^+) \cong \pi_r(TS^rA_r^+) = \pi_1 (\Omega^{r-1}(TS^{r-1}SA_r^+)) = \pi_1(TSA^+).\]
+So when we consider homotopy classes of maps from a space $X$ (with disjoint basepoint added) into the spaces of the extended fibre sequence
+\[TA^+ \longrightarrow TA^+ \times \pi \longrightarrow \pi \longrightarrow TSA_2^+ \longrightarrow TSA^+ \longrightarrow K(\pi, 1) \longrightarrow TS^2A_3^+ \longrightarrow TS^2A^+_2 \longrightarrow \cdots \]
+where $\pi = \pi_1(TSA^+)$, we obtain the long exact sequence
+\refstepcounter{theorem}
+\begin{equation}
+  h^0(X; \bar{T}A) \longrightarrow h^0(X; TA)\longrightarrow  H^0(X; \pi_1(TSA^+))\longrightarrow  h^1(X; \bar{T}A)\longrightarrow  \cdots
+\end{equation}
+Clearly, the first three terms of (10.6) form a split short exact sequence, comparable to (2.5).
+
+One advantage of cohomology theories over homology theories in general is that they often carry a (graded) {\em multiplicative} structure. This arises from a collection of product maps, aggregating to a {\em product of spectra}
+\[E_{(m)}\wedge E_{(n)}\longrightarrow E_{(m+n)} \quad (m,n\geqslant 0).\]
+To achieve this, we apply (7.4) and (5.8) to our $O$-connected spectrum $\bar{T}A$.
+\begin{corollary}
+  In the context of Corollary 10.4, functorial maps 
+  \[TS^mA \wedge TS^nA'\longrightarrow TS^{m+n}A''\]
+   induce a functorial product of spectra\index{product of spectra}
+   \[(TS^mA)^+_{m+1} \wedge (TS^nA')^+_{n+1}\longrightarrow (TS^{m+n}A'')^+_{m+n+1}.\]
+\end{corollary}
+It is not hard to see what further structure one should demand in order to ensure associativity and commutativity, where appropriate. Our interest of course lies in the case where the category $C$ is $\mathbb{R}ing$, which is where the next chapter takes up the story.
+
+% chapter delooping_of_the_plus_construction (end)
